@@ -5,42 +5,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>Colr</title>
+    <link rel="stylesheet" href="../globals/global.css">
+    <title>Conectare</title>
 
 </head>
 <body>
 
 
-    <section>
+    <section class = "login" id = "login">
 
         <div class = "summary" id = "summary">
-            <h1>Everything<br>in Colr</h1><br>
-            <h4>Insert text here</h4>
-            <h4>Insert text here</h4>
+            <h1>Rezumat<br>Colr</h1><br>
+            <h4>Colr este o platforma de cautat artefacte si colectii</h4>
+            <h4>Aceasta platforma ajuta comunitatea de colectionari sa gaseasca mult mai usor lucrurile de care sunt interesati</h4>
         </div>
 
         <div class = "sign-in" id = "sign-in">
+
             <form class="signin-form" id="signin-form" accept-charset="UTF-8" method="post">
-                    
+                
+                <br>
+
+                <p>Conectare</p>
+
                 <div class="form-group">
-                    <input type="email" autocapitalize="none" name="username" id="signin_user" class="form-control signin-input-user" maxlength="255" placeholder="Email">
+                    <input type="email" autocapitalize="none" name="username" maxlength="255" placeholder="Email">
                 </div>
                 
                 <div class="form-group">
-                    <input type="password" name="password" id="sigin_pass" class="form-control signin-input-pass" maxlength="255" placeholder="Password"> 
-                </div>
-    
-                <div class="form-group">
-                    <input type="password" name="password_again" id="signin_pass_again" class="form-control" maxlength="255" placeholder="Confirm password">
+                    <input type="password" name="password" maxlength="255" placeholder="Parolă"> 
                 </div>
                 
-                <div class="form-group">
-                    <input type="hidden" name="enable_emailmarketing" id="enable_emailmarketing" class="enable_emailmarketing" value="0">
-                    <input type="hidden" name="enable_emailproduct" id="enable_emailproduct" class="enable_emailproduct" value="0">
-                    <input type="hidden" name="plan" id="plancode" class="signin-input-plancode" value="1">
-                    <input type="hidden" name="referralcode" id="signin_referralcode" class="text long signin-input-referral" value="">
-                    <input onclick="validateForm();" id="signin_submit" class="signin-input-submit btn btn-light-homepage btn-block signin-button" accesskey="s" value="Sign up free" style="line-height:22px;padding:10px;">
+                <div class="singin-button">
+                    <button type="button">Conectare</button>
                 </div>
+                
+                <div class="singup-button">
+                    <button type="button">Înregistrează-te Gratis</button>
+                </div>
+
             </form>
         </div>
 
