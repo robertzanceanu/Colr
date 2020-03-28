@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     height: fit-content;
 }
+
 .dashboard-page-card-wrapper {
     width: 360px;
     height: 260px;
@@ -17,6 +18,7 @@
     margin-right: 30px;
     margin-bottom: 30px;
 }
+
 .dashboard-page-card-name {
     font-size: 20px;
     color: #1F4B59;
@@ -24,7 +26,8 @@
     align-self: center;
     margin-bottom: 15px;
 }
-.dashboard-page-card-collection-info{
+
+.dashboard-page-card-collection-info {
     font-size: 18px;
     color: #1F4B59;
     margin-bottom: 10px;
@@ -33,13 +36,24 @@
     text-overflow: ellipsis;
     width: 100%;
 }
-.dashboard-page-card-collection-info span{
+
+.dashboard-page-card-collection-info span {
     font-weight: bold;
 }
+
 .dashboard-page-card-bottom-infos {
     font-size: 16px;
     color: #1F4B59;
 }
+
 .dashboard-page-card-bottom-infos:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+    .dashboard-page-card-wrapper {
+        width: 100%;
+        margin-right: 0;
+        padding: 10px 15px;
+    }
 }
