@@ -1,56 +1,65 @@
 let http = require('http')
-let fs = require('fs')
-let path = require('path')
+let mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+const renderContent = require('./utils/renderContent')
+const router = require('./routes/router')
 
 const PORT = 8080
 
+//Aici se face conexiunea la bd: COLRSuperUser - numele userului, superuser1 - parola
+mongoose.connect('mongodb+srv://COLRSuperUser:superuser1@twproject2020-fdksh.mongodb.net/COLR?retryWrites=true&w=majority', { useNewUrlParser: true })
+    .then(() => console.log("Connected to MongoDB..."))
+    .catch(err => console.error("Could not connect to MongoDB...", err))
+
+dotenv.config()
+
+//rutele acceptate
+const routes = [
+    'dashboard',
+    'login',
+    'add-artefacts',
+    'add-colection',
+    'globalStatistics',
+    'myAccount',
+    'rankings',
+    'signup',
+    'view-artefacts',
+    'view-colection'
+]
+
 http.createServer(function (request, response) {
-    console.log('request ', request.url);
-
-    let filePath = '.' + request.url;
-    if (filePath == '../frontend') {
-        filePath = './index.html';
+    //aici o sa imi explic in cuvinte logica
+    let requestPages = request.url.split('/')
+    requestPages.shift()
+    const mainPage = requestPages[0].split('.')[0]
+    const requestMime = requestPages[requestPages.length - 1].split('.')[1]
+    //daca ruta are pe pozitia 1 in request api, inseamna ca call-ul este facut de pe front prin fetch deci mergem la router, 
+    // altfel inseamna ca este ceva de tipul html, css ... si se duce pe citirea lor
+    if (requestPages[0] === 'api') {
+        router(request, response, requestPages)
     }
+    else {
+        //aici voi explica in cuvinte
+        let filePath = '../frontend'
 
-    let extname = String(path.extname(filePath)).toLowerCase();
-    let mimeTypes = {
-        '.html': 'text/html',
-        '.js': 'text/javascript',
-        '.css': 'text/css',
-        '.json': 'application/json',
-        '.png': 'image/png',
-        '.jpg': 'image/jpg',
-        '.gif': 'image/gif',
-        '.svg': 'image/svg+xml',
-        '.wav': 'audio/wav',
-        '.mp4': 'video/mp4',
-        '.woff': 'application/font-woff',
-        '.ttf': 'application/font-ttf',
-        '.eot': 'application/vnd.ms-fontobject',
-        '.otf': 'application/font-otf',
-        '.wasm': 'application/wasm'
+        if (routes.indexOf(mainPage) > -1) {
+            filePath = `${filePath}/${mainPage}/${mainPage}`
+
+            if (!requestMime) {
+                filePath = `${filePath}.html`
+                renderContent(filePath, 'html', response)
+            } else {
+                filePath = `${filePath}.${requestMime}`
+                renderContent(filePath, requestMime, response)
+            }
+        } else {
+            const reqMt = request.url.split('.')
+            filePath = `${filePath}${request.url}`
+            renderContent(filePath, reqMt[1], response)
+        }
     }
+}).listen(PORT)
 
-    let contentType = mimeTypes[extname] || 'application/octet-stream'
-
-    fs.readFile(filePath, function(error, content) {
-        if (error) {
-            if(error.code == 'ENOENT') {
-                fs.readFile('./404.html', function(error, content) {
-                    response.writeHead(404, { 'Content-Type': 'text/html' })
-                    response.end(content, 'utf-8')
-                });
-            }
-            else {
-                response.writeHead(500);
-                response.end('Sorry, check with the site admin for error: '+error.code+' ..\n')
-            }
-        }
-        else {
-            response.writeHead(200, { 'Content-Type': contentType })
-            response.end(content, 'utf-8')
-        }
-    });
-
-}).listen(PORT);
 console.log(`Server running at http://127.0.0.1:${PORT}/`)
+

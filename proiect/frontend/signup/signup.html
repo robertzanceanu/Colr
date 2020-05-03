@@ -20,7 +20,7 @@
             <h4>Aceasta platforma ajuta comunitatea de colectionari sa gaseasca mult mai usor lucrurile de care sunt interesati</h4>
         </div>
 
-        <div class = "sign-up" id = "sign-ip">
+        <div class = "sign-up" id = "sign-up">
 
             <form class="signup-form" id="signup-form" accept-charset="UTF-8" method="post">
                     
@@ -29,24 +29,30 @@
                 <p>Înregistrează-te Gratis</p>
 
                 <div class="form-group">
-                    <input type="email" autocapitalize="none" name="username" maxlength="255" placeholder="Email">
+                    <input type="email" autocapitalize="none" name="username" maxlength="255" placeholder="Email" id='email'>
                 </div>
-                
                 <div class="form-group">
-                    <input type="password" name="password" maxlength="255" placeholder="Parolă"> 
+                    <input type="text" autocapitalize="none" name="firstName" maxlength="255" placeholder="Prenume" id='first-name'>
+                </div>
+                <div class="form-group">
+                    <input type="text" autocapitalize="none" name="lastName" maxlength="255" placeholder="Nume" id='last-name'>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" maxlength="255" placeholder="Parolă" id='password'> 
                 </div>
 
                 <div class="form-group">
-                    <input type="password" name="repeat-password" maxlength="255" placeholder="Repetă Parola"> 
+                    <input type="password" name="repeat-password" maxlength="255" placeholder="Repetă Parola" id="repeat-password"> 
                 </div>
                 
                 <div class="singup-button">
-                    <button type="button">Înregistrează-te Gratis</button>
+                    <button type="button" id="submit-button">Înregistrează-te Gratis</button>
                 </div>
 
             </form>
         </div>
 
     </section>
+    <script src='signup.js'></script>
 </body>
 </html>
