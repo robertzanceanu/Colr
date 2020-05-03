@@ -4,6 +4,14 @@
     justify-content: space-around;
     height: 100%;
 }
+@media screen and (max-width: 850px) {
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
+}
 button {
     background-color: #1F4B59;
     color: white;
@@ -55,6 +63,9 @@ input[type=password]  {
 .signin-form:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }
+.singup-button button {
+    margin-top: 15%;
+}
 .summary {
     display: table;
     height: 100%;
@@ -63,12 +74,12 @@ input[type=password]  {
     font-size: large;
     background: #1F4B59;
 }
-h1 {
+.summary h1 {
     margin-top: 15%;
     color: wheat;
-    font: large;
+    font-size: 50px;
 }
-h4 {
+.summary h4 {
     color: #f8f8ec;
-    font: medium;
+    font-size: x-large;
 }
