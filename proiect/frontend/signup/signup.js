@@ -2,7 +2,7 @@ const submitButton = document.getElementById('submit-button')
 
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://127.0.0.1:8080/api/signup/register`, {
+        const response = await fetch(`http://localhost:8080/api/signup/register`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

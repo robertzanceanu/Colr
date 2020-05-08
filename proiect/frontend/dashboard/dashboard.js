@@ -1,6 +1,6 @@
 const getInfos = async () => {
     try {
-        const response = await fetch(`http://127.0.0.1:8080/api/dashboard/infos`, {
+        const response = await fetch(`http://localhost:8080/api/dashboard/infos`, {
             method: 'get',
             headers: {
                 'Accept': 'application/json',
@@ -21,3 +21,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         window.location.href = '/login'
     }
 })
+
+

@@ -17,7 +17,7 @@ module.exports = async (request,response, body) => {
     if(!validPass) {
         response.writeHead(400, {"Content-Type":"application/json"})
         response.write(JSON.stringify({
-            error:'Parola foarte gresita!'
+            error:'Parola este gresita!'
         }))
         response.end()
         return

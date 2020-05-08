@@ -9,19 +9,33 @@ const verifyAuthToken = require('../utils/verifyAuthToken')
 // ca sa stim ce date sa aducem
 module.exports = async (request, response, urlArray) => {
     let body = {}
-
     await request.on('data', data => {
         body = JSON.parse(data)
     })
-    if (urlArray[1] === 'signup') {
-        signupRoute(request, response, urlArray, body)
-    }
-    if (urlArray[1] === 'login') {
-        loginRoute(request, response, urlArray, body)
-    }
-    if (urlArray[1] === 'dashboard') {
-        if(verifyAuthToken(request,response)){
-            dashboardRoute(request, response, urlArray, body)
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+        'Access-Control-Max-Age': 2592000, // 30 days
+        /** add other headers as per requirement */
+    };
+
+    if (request.method === 'OPTIONS') {
+        response.writeHead(204, headers);
+        response.end();
+        return;
+    } else {
+        if (urlArray[1] === 'signup') {
+            signupRoute(request, response, urlArray, body)
+        }
+        if (urlArray[1] === 'login') {
+            loginRoute(request, response, urlArray, body)
+        }
+        if (urlArray[1] === 'dashboard') {
+            if (verifyAuthToken(request, response)) {
+                dashboardRoute(request, response, urlArray, body)
+            }
         }
     }
+
+
 }

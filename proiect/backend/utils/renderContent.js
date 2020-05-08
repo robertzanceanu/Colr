@@ -17,7 +17,6 @@ let mimeTypes = {
     '.otf': 'application/font-otf',
     '.wasm': 'application/wasm'
 }
-
 module.exports = (route, mimeType, response) => {
     let contentType = mimeTypes[`.${mimeType}`] || 'application/octet-stream'
     fs.readFile(route, function (error, content) {
