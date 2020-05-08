@@ -44,13 +44,24 @@ p {
     margin-left: 55px;
     text-align: left;
 }
-.imagine button {
+.image button {
     background-color: #1F4B59;
+    color: white;
+    padding: 3% 3%;
     border: none;
-    color: #FFEECC;
-    padding: 5px 5px;
-    text-align: center;
-    width: 300px;
-    height: 50px;
-    font-size: 20px;
+    cursor: pointer;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    border-radius: 25px;
+}
+@media screen and (max-width: 850px) {
+    .formular {
+        margin-top: 15%;
+        margin-left: 15%;
+        margin-bottom: 60px;
+        height: 85%;
+        width: 70%;
+    }
 }

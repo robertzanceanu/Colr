@@ -10,31 +10,39 @@
     </head>
     <body>
         <div class="body-wrapper">
-            <nav class='navigation'>
-                <div class="navigation-top">
-                    <h1 class="navigation-logo">Colr</h1>
+            <nav class='navigation' id="navigation">
+        <div class="navigation-top">
+            <h1 class="navigation-close" id="hide-menu">x</h1>
+            <h1 class="navigation-logo">Colr</h1>
+        </div>
+        <div class="navigation-pages">
+            <div class="navigation-page-wrapper navigation-page-wrapper-selected">
+                <a class="navigation-page navigation-page-selected" href="">Sumar</a>
+            </div>
+            <div class="navigation-page-wrapper">
+                <a class="navigation-page" href="">Artefacte</a>
+            </div>
+            <div class="navigation-page-wrapper">
+                <a class="navigation-page" href="">Adauga colectie</a>
+            </div>
+            <div class="navigation-page-wrapper">
+                <a class="navigation-page" href="">Clasament artefacte</a>
+            </div>
+            <div class="navigation-page-wrapper">
+                <a class="navigation-page" href="">Statistici globale</a>
+            </div>
+            <div class="navigation-page-wrapper">
+                <a class="navigation-page" href="">Contul meu</a>
+            </div>
+            <div class="navigation-user">
+                <div class="page-user">
+                    <img src="../globals/images/account.png" alt='account'/>
+                    <h1 class="page-user-name">Vasile Gheorghe</h1>
                 </div>
-                <div class="navigation-pages">
-                    <div class="navigation-page-wrapper navigation-page-wrapper-selected">
-                        <a class="navigation-page navigation-page-selected" href="">Sumar</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="">Artefacte</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="">Adauga colectie</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="">Clasament artefacte</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="">Statistici globale</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="">Contul meu</a>
-                    </div>
-                </div>
-            </nav>
+                <a class="page-logout" href="">Delogheaza-te</a>
+            </div>
+        </div>
+    </nav>
      <div class="page-wrapper">
                 <div class="page-top">
                     <div class="page-user">
@@ -43,6 +51,14 @@
                     </div>
                     <a class="page-logout" href="">Delogheaza-te</a>
                 </div>
+                <div class="page-details-mobile">
+            <div class="page-details-mobile-burger " id="show-menu">
+                <div class="page-details-mobile-burger-line"></div>
+                <div class="page-details-mobile-burger-line"></div>
+                <div class="page-details-mobile-burger-line"></div>
+            </div>
+            <h1 class="page-details-mobile-current-page">Sumar</h1>
+        </div>
                 <section class="page-content-colectie">
                 <div class="page-content-photos">
                 <ul>
@@ -121,5 +137,6 @@ Why do we use it?</p>
     </section>
      </div>
      </div>
+     <script src="../globals/globals.js"></script>
     </body>
     </html>
