@@ -1,10 +1,11 @@
-const loginButton = document.getElementById('login-button')
+const addButton = document.getElementById('add-button')
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8081/api/login/auth`, {
+        const response = await fetch(`http://localhost:8081/api/collection/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(values)
@@ -16,15 +17,20 @@ const onSubmit = async (values) => {
         console.log(err)
     }
 }
-
-loginButton.addEventListener('click', async () => {
+addButton.addEventListener('click', async () => {
     let formValues = {}
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
+    let name = document.getElementById('name').value
+    let description = document.getElementById('description').value
+    let data = document.getElementById('startingYear').value
+    let collectionType = document.getElementById("collectionType").value
+    
 
     formValues = {
-        email,
-        password,
+        name,
+        description,
+        data,
+        collectionType,
+        userId: localStorage.getItem('id')
     }
     let response = await onSubmit(formValues)
     if (!response.error) {

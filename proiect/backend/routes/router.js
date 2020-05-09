@@ -1,6 +1,7 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
+const addCollectionRoute = require('./addCollectionRoute')
 
 const verifyAuthToken = require('../utils/verifyAuthToken')
 
@@ -33,6 +34,12 @@ module.exports = async (request, response, urlArray) => {
         if (urlArray[1] === 'dashboard') {
             if (verifyAuthToken(request, response)) {
                 dashboardRoute(request, response, urlArray, body)
+            }
+        }
+        if(urlArray[1] === 'collection')
+        {
+            if (verifyAuthToken(request, response)){
+            addCollectionRoute(request, response, urlArray, body);
             }
         }
     }
