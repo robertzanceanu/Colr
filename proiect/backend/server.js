@@ -9,7 +9,7 @@ const PORT = 8080
 
 
 //Aici se face conexiunea la bd: COLRSuperUser - numele userului, superuser1 - parola
-mongoose.connect('mongodb+srv://COLRSuperUser:superuser1@twproject2020-fdksh.mongodb.net/test?retryWrites=true&w=majority', { useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://COLRSuperUser:superuser1@twproject2020-fdksh.mongodb.net/COLR?retryWrites=true&w=majority', { useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB..."))
     .catch(err => console.error("Could not connect to MongoDB...", err))
 
@@ -26,7 +26,8 @@ const routes = [
     'rankings',
     'signup',
     'view-artefacts',
-    'view-colection'
+    'view-colection',
+    'artefacts'
 ]   
 
 http.createServer(function (request, response) {
