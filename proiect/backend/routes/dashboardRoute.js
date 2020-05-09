@@ -6,4 +6,5 @@ module.exports = (request,response,routes,body) => {
             dashboardInfosController(request,response, body)
         }
     } 
+
 }
