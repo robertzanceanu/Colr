@@ -1,7 +1,7 @@
 const loginButton = document.getElementById('login-button')
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8081/api/login/auth`, {
+        const response = await fetch(`http://localhost:8080/api/login/auth`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
