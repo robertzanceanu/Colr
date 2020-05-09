@@ -4,8 +4,13 @@ const dotenv = require('dotenv')
 
 const renderContent = require('./utils/renderContent')
 const router = require('./routes/router')
+<<<<<<< HEAD
 
 const PORT = 8081
+=======
+const {createCollections} = require('./utils/functions')
+const PORT = 8080
+>>>>>>> 0e64204a1c94c348d0c8c4619d338209153cc564
 
 
 //Aici se face conexiunea la bd: COLRSuperUser - numele userului, superuser1 - parola
@@ -29,7 +34,6 @@ const routes = [
     'view-colection',
     'artefacts'
 ]   
-
 http.createServer(function (request, response) {
     //aici o sa imi explic in cuvinte logica
     let requestPages = request.url.split('/')
@@ -38,7 +42,7 @@ http.createServer(function (request, response) {
     const requestMime = requestPages[requestPages.length - 1].split('.')[1]
     //daca ruta are pe pozitia 1 in request api, inseamna ca call-ul este facut de pe front prin fetch deci mergem la router, 
     // altfel inseamna ca este ceva de tipul html, css ... si se duce pe citirea lor
-
+    createCollections()
     if (requestPages[0] === 'api') {
         router(request, response, requestPages)
     }

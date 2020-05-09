@@ -1,8 +1,12 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
+<<<<<<< HEAD
 const addCollectionRoute = require('./addCollectionRoute')
 
+=======
+const collectionTypesRoute = require('./collectionTypesRoute')
+>>>>>>> 0e64204a1c94c348d0c8c4619d338209153cc564
 const verifyAuthToken = require('../utils/verifyAuthToken')
 
 // routerul verifica ce pagina e in request si te trimite pe ruta ei.. la dashboard verific daca exista auth tokenul in headers deoarece 
@@ -10,6 +14,7 @@ const verifyAuthToken = require('../utils/verifyAuthToken')
 // ca sa stim ce date sa aducem
 module.exports = async (request, response, urlArray) => {
     let body = {}
+
     await request.on('data', data => {
         body = JSON.parse(data)
     })
@@ -36,13 +41,18 @@ module.exports = async (request, response, urlArray) => {
                 dashboardRoute(request, response, urlArray, body)
             }
         }
+<<<<<<< HEAD
         if(urlArray[1] === 'collection')
         {
             if (verifyAuthToken(request, response)){
             addCollectionRoute(request, response, urlArray, body);
+=======
+        if (urlArray[1] === 'collectionTypes') {
+            if (verifyAuthToken(request, response)) {
+                collectionTypesRoute(request, response, urlArray, body)
+>>>>>>> 0e64204a1c94c348d0c8c4619d338209153cc564
             }
         }
     }
-
 
 }
