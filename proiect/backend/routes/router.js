@@ -1,11 +1,12 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
-const addCollectionRoute = require('./addCollectionRoute')
-
-const collectionTypesRoute = require('./collectionTypesRoute')
+const collectionRoute = require('./collectionRoute')
 const verifyAuthToken = require('../utils/verifyAuthToken')
 const addArtefactsRoute = require("./addArtefactsRoute")
+const artefactRarity = require('./artefactRarityRoute')
+const artefactCondition = require('./artefactConditionRoute')
+const collectionTypesRoute = require('./collectionTypesRoute')
 
 // routerul verifica ce pagina e in request si te trimite pe ruta ei.. la dashboard verific daca exista auth tokenul in headers deoarece 
 // acela este un call privat.. cel mai probabil asa va fi la toate paginile mai putin login/signup deoarece la toate trebuie sa fii logat
@@ -39,12 +40,11 @@ module.exports = async (request, response, urlArray) => {
                 dashboardRoute(request, response, urlArray, body)
             }
         }
-        if(urlArray[1] === 'collection')
-        {
-            if (verifyAuthToken(request, response)){
-            addCollectionRoute(request, response, urlArray, body);
+        if (urlArray[1] === 'collection') {
+            if (verifyAuthToken(request, response)) {
+                collectionRoute(request, response, urlArray, body);
+            }
         }
-    }
         if (urlArray[1] === 'collectionTypes') {
             if (verifyAuthToken(request, response)) {
                 collectionTypesRoute(request, response, urlArray, body)
@@ -56,9 +56,16 @@ module.exports = async (request, response, urlArray) => {
             addArtefactsRoute(request, response, urlArray, body);
             }
         }
+        if (urlArray[1] === 'rarity') {
+            if (verifyAuthToken(request, response)) {
+                artefactRarity(request, response, urlArray, body)
+            }
+        }
+        if (urlArray[1] === 'condition') {
+            if (verifyAuthToken(request, response)) {
+                artefactCondition(request, response, urlArray, body)
+            }
+        }
     }
-
-
 }
-
 

@@ -16,7 +16,7 @@ const getInfos = async () => {
 }
 const getCollectionTypes = async () => {
     try {
-        const response = await fetch(`http://localhost:8081/api/collectionTypes`, {
+        const response = await fetch(`http://localhost:8081/api/collection`, {
             method: 'get',
             headers: {
                 'Accept': 'application/json',

@@ -34,15 +34,47 @@ const getCollection = async () => {
         console.log(err)
     }
 }
-
+const getRarity = async () => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/rarity`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+        return json
+    } catch (err) {
+        console.log(err)
+    }
+}
+const getCondition = async () => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/condition`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+        return json
+    } catch (err) {
+        console.log(err)
+    }
+}
 submitButton.addEventListener('click', async () => {
     let formValues = {}
 
     let name = document.getElementById('name').value
+    let collectionId = document.getElementById('dropdownCollection').value
     let year = document.getElementById('year').value
     let value = document.getElementById('value').value
-    let rarity = document.getElementById('rarity').value
-    let condition = document.getElementById('condition').value
+    let rarity = document.getElementById('dropdownRaritate').value
+    let condition = document.getElementById('dropdownCondiție').value
     let description = document.getElementById('description').value
     let country = document.getElementById('country').value
     let usageHistory = document.getElementById('usageHistory').value
@@ -56,7 +88,7 @@ submitButton.addEventListener('click', async () => {
         country,
         usageHistory,
         userId: localStorage.getItem('id'),
-        collectionId: '123',
+        collectionId,
         numberOfLikes: 0
     }
     let response = await onSubmit(formValues)
@@ -66,6 +98,8 @@ submitButton.addEventListener('click', async () => {
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collection = await getCollection()
+    let rarity = await getRarity()
+    let condition = await getCondition()
     let selectElement = document.getElementById('dropdownCollection')
     collection.map((type,index) =>{
 
@@ -74,7 +108,22 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             opt.innerHTML = type.name;
             selectElement.appendChild(opt);
     }) 
-        
+    let selectElement1 = document.getElementById('dropdownRaritate')
+    rarity.map((type,index) =>{
+
+            var opt = document.createElement('option');
+            opt.value = type._id;
+            opt.innerHTML = type.name;
+            selectElement1.appendChild(opt);
+    })
+    let selectElement2 = document.getElementById('dropdownCondiție')
+    condition.map((type,index) =>{
+
+            var opt = document.createElement('option');
+            opt.value = type._id;
+            opt.innerHTML = type.name;
+            selectElement2.appendChild(opt);
+    })   
     
     
 })

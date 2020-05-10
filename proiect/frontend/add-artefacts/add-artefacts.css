@@ -56,6 +56,22 @@ p {
     margin-top: 5%;
     border-radius: 25px;
 }
+select{
+    background:#FFEECC;
+    width: 80%;
+    padding: 2px;;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:22px;
+    font-weight:600;
+    color:#1F4B59;
+    line-height: 1;
+    border: 0;
+    border-radius: 20%;
+    height: 34px;
+    margin-top: 1rem;
+    outline: none;
+
+    }
 @media screen and (max-width: 850px) {
     .formular {
         margin-top: 15%;

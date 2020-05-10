@@ -76,7 +76,7 @@ select{
     border-radius: 20%;
     height: 34px;
     margin-top: 1rem;
-
+    outline: none;
     }
 @media screen and (max-width: 850px) {
     .formular {

@@ -5,6 +5,9 @@ const dotenv = require('dotenv')
 const renderContent = require('./utils/renderContent')
 const router = require('./routes/router')
 const {createCollections} = require('./utils/functions')
+const {createRarity} = require('./utils/functions')
+const {createCondition} = require('./utils/functions')
+
 const PORT = 8081
 
 
@@ -38,6 +41,8 @@ http.createServer(function (request, response) {
     //daca ruta are pe pozitia 1 in request api, inseamna ca call-ul este facut de pe front prin fetch deci mergem la router, 
     // altfel inseamna ca este ceva de tipul html, css ... si se duce pe citirea lor
     createCollections()
+    createRarity()
+    createCondition()
     if (requestPages[0] === 'api') {
         router(request, response, requestPages)
     }

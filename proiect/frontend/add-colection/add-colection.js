@@ -62,13 +62,10 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     let selectElement = document.getElementById('dropdown')
     let selectText = ``
     collectionTypes.map((type,index) =>{
-
             var opt = document.createElement('option');
             opt.value = type._id;
             opt.innerHTML = type.name;
             selectElement.appendChild(opt);
     }) 
-        
-    
     
 })
