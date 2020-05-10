@@ -10,4 +10,5 @@ module.exports = (request,response, routes, body) => {
             getCollectionsController(request,response,body)
         }
     }
+    console.log('gsagsgsg')
 }
