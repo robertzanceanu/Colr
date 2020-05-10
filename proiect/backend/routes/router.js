@@ -1,13 +1,7 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
-<<<<<<< HEAD
-const addCollectionRoute = require('./addCollectionRoute')
-
-const collectionTypesRoute = require('./collectionTypesRoute')
-=======
-const addCollectionRoute = require('./collectionRoute')
->>>>>>> 8d3bd0eee4b533281a37c536c10919e4156754cd
+const collectionRoute = require('./collectionRoute')
 const verifyAuthToken = require('../utils/verifyAuthToken')
 const addArtefactsRoute = require("./addArtefactsRoute")
 
@@ -43,33 +37,19 @@ module.exports = async (request, response, urlArray) => {
                 dashboardRoute(request, response, urlArray, body)
             }
         }
-<<<<<<< HEAD
-        if(urlArray[1] === 'collection')
-        {
-            if (verifyAuthToken(request, response)){
-            addCollectionRoute(request, response, urlArray, body);
+        if (urlArray[1] === 'collection') {
+            if (verifyAuthToken(request, response)) {
+                collectionRoute(request, response, urlArray, body);
+            }
         }
-    }
         if (urlArray[1] === 'collectionTypes') {
             if (verifyAuthToken(request, response)) {
                 collectionTypesRoute(request, response, urlArray, body)
             }
         }
-        if(urlArray[1] === 'artefacts')
-        {
-            if (verifyAuthToken(request, response)){
-            addArtefactsRoute(request, response, urlArray, body);
-=======
-        if (urlArray[1] === 'collection') {
-            if (verifyAuthToken(request, response)) {
-                addCollectionRoute(request, response, urlArray, body);
-            }
-        }
         if (urlArray[1] === 'artefacts') {
             if (verifyAuthToken(request, response)) {
-                addArtefactsRoute(request, response, urlArray, body)
-
->>>>>>> 8d3bd0eee4b533281a37c536c10919e4156754cd
+                addArtefactsRoute(request, response, urlArray, body);
             }
         }
     }
