@@ -1,7 +1,7 @@
 const addButton = document.getElementById('add-button')
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/collection/add`, {
+        const response = await fetch(`http://localhost:8081/api/collection/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -62,13 +62,10 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     let selectElement = document.getElementById('dropdown')
     let selectText = ``
     collectionTypes.map((type,index) =>{
-
             var opt = document.createElement('option');
             opt.value = type._id;
             opt.innerHTML = type.name;
             selectElement.appendChild(opt);
     }) 
-        
-    
     
 })
