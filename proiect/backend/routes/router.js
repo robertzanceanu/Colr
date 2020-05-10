@@ -2,6 +2,11 @@ const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
 const addCollectionRoute = require('./addCollectionRoute')
+<<<<<<< HEAD
+
+const collectionTypesRoute = require('./collectionTypesRoute')
+=======
+>>>>>>> 0198c7bb3352a45a7876595cb94ba19360d73b79
 const verifyAuthToken = require('../utils/verifyAuthToken')
 const addArtefactsRoute = require("./addArtefactsRoute")
 
@@ -41,14 +46,25 @@ module.exports = async (request, response, urlArray) => {
         {
             if (verifyAuthToken(request, response)){
             addCollectionRoute(request, response, urlArray, body);
+<<<<<<< HEAD
+        }
+    }
+        if (urlArray[1] === 'collectionTypes') {
+            if (verifyAuthToken(request, response)) {
+                collectionTypesRoute(request, response, urlArray, body)
+=======
             }
         }
         if(urlArray[1] === 'artefacts')
         {
             if (verifyAuthToken(request, response)){
             addArtefactsRoute(request, response, urlArray, body);
+>>>>>>> 0198c7bb3352a45a7876595cb94ba19360d73b79
             }
         }
     }
 
+
 }
+
+
