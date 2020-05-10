@@ -1,7 +1,7 @@
 const addButton = document.getElementById('add-button')
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/collection/add`, {
+        const response = await fetch(`http://localhost:8081/api/collection/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

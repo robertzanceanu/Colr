@@ -2,7 +2,7 @@ const submitButton = document.getElementById('submit-button')
 
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/artefacts/add`, {
+        const response = await fetch(`http://localhost:8081/api/artefacts/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -14,6 +14,22 @@ const onSubmit = async (values) => {
         const json = await response.json()
         return json
 
+    } catch (err) {
+        console.log(err)
+    }
+}
+const getCollection = async () => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/collection`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+        return json
     } catch (err) {
         console.log(err)
     }
@@ -47,4 +63,18 @@ submitButton.addEventListener('click', async () => {
     if (!response.error) {
         window.location.href = '/dashboard'
     }
+})
+window.addEventListener('DOMContentLoaded', async (event) => {
+    let collection = await getCollection()
+    let selectElement = document.getElementById('dropdownCollection')
+    collection.map((type,index) =>{
+
+            var opt = document.createElement('option');
+            opt.value = type._id;
+            opt.innerHTML = type.name;
+            selectElement.appendChild(opt);
+    }) 
+        
+    
+    
 })

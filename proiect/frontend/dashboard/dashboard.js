@@ -1,6 +1,6 @@
 const getInfos = async () => {
     try {
-        const response = await fetch(`http://localhost:8080/api/dashboard/infos`, {
+        const response = await fetch(`http://localhost:8081/api/dashboard/infos`, {
             method: 'get',
             headers: {
                 'Accept': 'application/json',
