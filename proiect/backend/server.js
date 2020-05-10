@@ -4,13 +4,8 @@ const dotenv = require('dotenv')
 
 const renderContent = require('./utils/renderContent')
 const router = require('./routes/router')
-<<<<<<< HEAD
-
-const PORT = 8081
-=======
 const {createCollections} = require('./utils/functions')
-const PORT = 8080
->>>>>>> 0e64204a1c94c348d0c8c4619d338209153cc564
+const PORT = 8081
 
 
 //Aici se face conexiunea la bd: COLRSuperUser - numele userului, superuser1 - parola

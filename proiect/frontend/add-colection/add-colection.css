@@ -1,3 +1,4 @@
+
 button {
     background-color: #1F4B59;
     color: white;
@@ -30,6 +31,7 @@ input[type=text] {
     box-sizing: border-box;
 }
 .form {
+    
     text-align: center;
     font-size: 30px;
     display: table;
@@ -56,6 +58,26 @@ p {
     margin-top: 5%;
     border-radius: 25px;
 }
+#startingYear{
+    border: inset;
+    padding: 0px 120px;
+    margin-bottom: 5%;
+}
+select{
+    background:#FFEECC;
+    width: 80%;
+    padding: 2px;;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:22px;
+    font-weight:600;
+    color:#1F4B59;
+    line-height: 1;
+    border: 0;
+    border-radius: 20%;
+    height: 34px;
+    margin-top: 1rem;
+
+    }
 @media screen and (max-width: 850px) {
     .formular {
         margin-top: 15%;
@@ -63,5 +85,10 @@ p {
         margin-bottom: 60px;
         height: 85%;
         width: 70%;
+    }
+    #startingYear{
+        border: inset;
+        padding: 0px 20%;
+        margin-bottom: 5%;
     }
 }
