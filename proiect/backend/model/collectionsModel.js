@@ -16,7 +16,7 @@ const collectionsSchema = new mongoose.Schema({
         min:20
     },
     startingYear: {
-        type:Number,
+        type:Date,
         required:true,
     },
     collectionTypeId: {

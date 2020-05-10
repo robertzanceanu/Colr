@@ -66,56 +66,32 @@
         
                         <h1>Formular</h1>
                         
-                        <br>
-
-                        <p>Adauga poza</p>
-
-                        <div class="imagine">
-                            <button type="button">Click Me!</button> 
-                        </div> 
-
+                        <br> 
+                        <p>Nume Colectie</p>
                         <div class="form-group">
-                            <input type="text" name="answer1" maxlength="255" placeholder="Raspuns">
+                            <input type="text" name="answer1" id="name" maxlength="255" placeholder="Introdu numele colectiei dorite...">
                         </div>
                         
-                        <p>Intrebare 2</p>
+                        <p>Descriere</p>
 
                         <div class="form-group">
-                            <input type="text" name="answer2" maxlength="255" placeholder="Raspuns"> 
+                            <input type="text" name="answer2" id="description" maxlength="255" placeholder="Introdu o scurta descriere a colectiei..."> 
                         </div>
                         
-                        <p>Intrebare 3</p>
+                        <p>Data la care ai inceput colectia</p>
                         
                         <div class="form-group">
-                            <input type="text" name="answer3" maxlength="255" placeholder="Raspuns"> 
+                            <input type="date" name="answer3" id = "startingYear" maxlength="255" placeholder=""> 
                         </div>
 
-                        <p>Intrebare 4</p>
+                        <p>Tipul Colectiei</p>
 
                         <div class="form-group">
-                            <input type="text" name="answer4" maxlength="255" placeholder="Raspuns"> 
+                            <input type="text" id="collectionType" name="answer4" maxlength="255" placeholder="Raspuns"> 
                         </div>
 
-                        <p>Intrebare 5</p>
-
-                        <div class="form-group">
-                            <input type="text" name="answer5" maxlength="255" placeholder="Raspuns"> 
-                        </div>
-
-                        <p>Intrebare 6</p>
-
-                        <div class="form-group">
-                            <input type="text" name="answer6" maxlength="255" placeholder="Raspuns"> 
-                        </div>
-
-                        <p>Intrebare 7</p>
-
-                        <div class="form-group">
-                            <input type="text" name="answer7" maxlength="255" placeholder="Raspuns"> 
-                        </div>
-
-                        <div class="singup-button">
-                            <button type="button">Trimite formularul</button>
+                        <div class="add-button">
+                            <button id="add-button" type="button">Trimite formularul</button>
                         </div>
         
                     </form>
@@ -123,5 +99,6 @@
             </div>
         </div>
         <script src="../globals/globals.js"></script>
+        <script src="./add-colection.js"></script>
     </body>
 </html>

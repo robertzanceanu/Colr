@@ -1,8 +1,9 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
 const dashboardRoute = require('./dashboardRoute')
-const collectionTypesRoute = require('./collectionTypesRoute')
+const addCollectionRoute = require('./addCollectionRoute')
 const verifyAuthToken = require('../utils/verifyAuthToken')
+const addArtefactsRoute = require("./addArtefactsRoute")
 
 // routerul verifica ce pagina e in request si te trimite pe ruta ei.. la dashboard verific daca exista auth tokenul in headers deoarece 
 // acela este un call privat.. cel mai probabil asa va fi la toate paginile mai putin login/signup deoarece la toate trebuie sa fii logat
@@ -36,9 +37,16 @@ module.exports = async (request, response, urlArray) => {
                 dashboardRoute(request, response, urlArray, body)
             }
         }
-        if (urlArray[1] === 'collectionTypes') {
-            if (verifyAuthToken(request, response)) {
-                collectionTypesRoute(request, response, urlArray, body)
+        if(urlArray[1] === 'collection')
+        {
+            if (verifyAuthToken(request, response)){
+            addCollectionRoute(request, response, urlArray, body);
+            }
+        }
+        if(urlArray[1] === 'artefacts')
+        {
+            if (verifyAuthToken(request, response)){
+            addArtefactsRoute(request, response, urlArray, body);
             }
         }
     }
