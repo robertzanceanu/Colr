@@ -1,7 +1,5 @@
 const Collection = require('../../model/collectionsModel')
 
-
-
 module.exports = async (request,response,body) =>{
     const colection = await Collection.findOne({
         name : body.name,

@@ -2,7 +2,7 @@ const submitButton = document.getElementById('submit-button')
 
 const onSubmit = async (values) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/artefacts/add`, {
+        const response = await fetch(`http://localhost:8081/api/artefacts/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
