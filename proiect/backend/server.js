@@ -5,8 +5,12 @@ const dotenv = require('dotenv')
 const renderContent = require('./utils/renderContent')
 const router = require('./routes/router')
 const {createCollections} = require('./utils/functions')
+<<<<<<< HEAD
 const PORT = 8081
+=======
+>>>>>>> 8d3bd0eee4b533281a37c536c10919e4156754cd
 
+const PORT = 8081
 
 //Aici se face conexiunea la bd: COLRSuperUser - numele userului, superuser1 - parola
 mongoose.connect('mongodb+srv://COLRSuperUser:superuser1@twproject2020-fdksh.mongodb.net/COLR?retryWrites=true&w=majority', { useUnifiedTopology: true })
