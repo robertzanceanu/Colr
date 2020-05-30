@@ -16,7 +16,7 @@ module.exports = (request, response) => {
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET)
         request.user = verified
-        return true
+        return verified
     } catch (err) {
         response.writeHead(401, { "Content-Type": "application/json" })
         response.write(JSON.stringify({

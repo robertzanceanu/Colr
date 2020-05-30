@@ -4,9 +4,9 @@ const dotenv = require('dotenv')
 
 const renderContent = require('./utils/renderContent')
 const router = require('./routes/router')
-const {createCollections} = require('./utils/functions')
-const {createRarity} = require('./utils/functions')
-const {createCondition} = require('./utils/functions')
+const { createCollections } = require('./utils/functions')
+const { createRarity } = require('./utils/functions')
+const { createCondition } = require('./utils/functions')
 
 const PORT = 8081
 
@@ -20,18 +20,18 @@ dotenv.config()
 
 //rutele acceptate
 const routes = [
-    'dashboard',
+    'collections',
     'login',
     'add-artefacts',
-    'add-colection',
+    'add-collection',
     'globalStatistics',
     'myAccount',
     'rankings',
     'signup',
     'view-artefacts',
-    'view-colection',
+    'view-collection',
     'artefacts'
-]   
+]
 http.createServer(function (request, response) {
     //aici o sa imi explic in cuvinte logica
     let requestPages = request.url.split('/')

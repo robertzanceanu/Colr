@@ -51,11 +51,6 @@ addButton.addEventListener('click', async () => {
         userId: localStorage.getItem('id')
     }
     let response = await onSubmit(formValues)
-    if (!response.error) {
-        localStorage.setItem('auth-token', response.token)
-        localStorage.setItem('id', response.id)
-        window.location.href = '/dashboard'
-    }
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collectionTypes = await getCollectionTypes()

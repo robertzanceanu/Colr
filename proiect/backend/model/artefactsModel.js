@@ -1,57 +1,61 @@
 const mongoose = require('mongoose')
 
+const imageSchema = new mongoose.Schema({
+    logoPath: String,
+    imgType: String
+});
 const artefactsSchema = new mongoose.Schema({
     userId: {
-        type:String,
-        required:true,
+        type: String,
+        required: true,
     },
     collectionId: {
-        type:String,
-        required:true,
+        type: String,
+        required: true,
     },
     name: {
-        type:String,
-        required:true,
-        min:6
+        type: String,
+        required: true,
+        min: 6
     },
     year: {
-        type:Date,
-        required:true,
+        type: Date,
+        required: true,
     },
     value: {
-        type:Number,
-        required:true
+        type: Number,
+        required: true
     },
     rarity: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     condition: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     description: {
-        type:String,
-        required:true,
-        min:20
+        type: String,
+        required: true,
+        min: 20
     },
     photos: {
-        type:[Buffer],
-        required:true
+        type: [imageSchema],
+        required: true
     },
     numberOfLikes: {
-        type:Number,
-        required:true
+        type: Number,
+        required: true
     },
     country: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     usageHistory: {
-        type:String,
-        required:true,
-        min:20
+        type: String,
+        required: true,
+        min: 20
     }
 })
 
-module.exports = mongoose.model('Artefacts',artefactsSchema)
+module.exports = mongoose.model('Artefacts', artefactsSchema)

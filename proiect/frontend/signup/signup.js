@@ -1,3 +1,9 @@
+window.addEventListener('DOMContentLoaded', () => {
+    if(localStorage.getItem('auth-token')) {
+        window.location.href = '/dashboard'
+    }
+})
+
 const submitButton = document.getElementById('submit-button')
 
 const onSubmit = async (values) => {
