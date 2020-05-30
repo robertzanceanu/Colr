@@ -1,13 +1,13 @@
-.dashboard-page-wrapper {
+.collections-page-wrapper {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     height: fit-content;
 }
 
-.dashboard-page-card-wrapper {
+.collections-page-card-wrapper {
     width: 360px;
-    height: 260px;
+    height: 230px;
     border-radius: 8px;
     background: #FFEECC;
     padding: 10px 15px 20px 15px;
@@ -19,22 +19,50 @@
     margin-bottom: 30px;
 }
 
-.dashboard-page-card-name {
+.collection-page-card-name {
     font-size: 20px;
     color: #1F4B59;
     font-weight: bold;
     align-self: center;
     margin-bottom: 15px;
 }
-
-.dashboard-page-card-collection-info {
+.collection-infos-wrapper {
+    display:flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-between;
+}
+.collection-info-text {
     font-size: 18px;
     color: #1F4B59;
     margin-bottom: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: fit-content;
+}
+.collection-info-text span {
+    font-weight:bold
+}
+
+.collection-link {
+    margin-top: auto;
+    font-size: 18px;
+    color: #1F4B59;
+    margin-left: auto;
+    text-decoration: underline;
+}
+
+.collection-page-card-collection-description {
+    font-size: 18px;
+    color: #1F4B59;
+    margin-bottom: 10px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 100%;
+    max-height: 100px;
+    height: 100%;
 }
 
 .dashboard-page-card-collection-info span {
@@ -51,7 +79,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .dashboard-page-card-wrapper {
+    .collections-page-card-wrapper {
         width: 100%;
         margin-right: 0;
         padding: 10px 15px;

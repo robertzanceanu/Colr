@@ -1,3 +1,9 @@
+window.addEventListener('DOMContentLoaded', () => {
+    if(localStorage.getItem('auth-token')) {
+        window.location.href = '/collections'
+    }
+})
+
 const loginButton = document.getElementById('login-button')
 const onSubmit = async (values) => {
     try {
@@ -30,6 +36,6 @@ loginButton.addEventListener('click', async () => {
     if (!response.error) {
         localStorage.setItem('auth-token', response.token)
         localStorage.setItem('id', response.id)
-        window.location.href = '/dashboard'
+        window.location.href = '/collections'
     }
 })

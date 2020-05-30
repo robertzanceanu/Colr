@@ -1,12 +1,12 @@
 const Collection = require('../../model/collectionsModel')
 
-module.exports = async (request,response,body) =>{
+module.exports = async (request,response,body, userId) =>{
     const colection = await Collection.findOne({
         name : body.name,
-        userId: body.userId
+        userId:userId
     })
     const newCollection = new Collection({
-        userId : body.userId,
+        userId : userId,
         name : body.name,
         description : body.description,
         startingYear : body.data,

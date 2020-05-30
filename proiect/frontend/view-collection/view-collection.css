@@ -23,6 +23,14 @@ body{
     height: 420px;
     width: 420px;;
 }
+.page-content-colectie {
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 45px;
+    box-sizing: border-box;
+}
 .page-content-photos > ul
 {
     flex: 1 0 100%;
@@ -48,9 +56,6 @@ li > img {
     height: 420px;
 }
 .page__content__text{
-    margin-left:10% ;
-    margin-right: 10%;
-    display: block;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;}
@@ -86,7 +91,9 @@ li > img {
     font-size: 20px;
     line-height: 25px;
 }
+.page-artefacts {
 
+}
 footer.container {
     margin: 45px auto 0;
     padding: 15px 15px;
@@ -102,9 +109,6 @@ footer.container {
       padding-right: 10px;
   }
   .btn {
-    margin-left: 30%;
-    margin-right: 20%;
-    display: -ms-inline-flexbox;
     padding: 15px 40px;
     text-transform: uppercase;
     color: #FFEECC;
@@ -113,5 +117,7 @@ footer.container {
     font-weight: 600;
     margin-top: 25px;
     font-family: 'Montserrat';
-    text-align: -webkit-center;
+    align-self: center;
+    text-align: center;
+    width: 50%;
   }

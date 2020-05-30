@@ -1,6 +1,6 @@
 const signupRoute = require('./signupRoute')
 const loginRoute = require('./loginRoute')
-const dashboardRoute = require('./dashboardRoute')
+const collectionsRoute = require('./collectionsRoute')
 const collectionRoute = require('./collectionRoute')
 const verifyAuthToken = require('../utils/verifyAuthToken')
 const addArtefactsRoute = require("./addArtefactsRoute")
@@ -12,11 +12,6 @@ const collectionTypesRoute = require('./collectionTypesRoute')
 // acela este un call privat.. cel mai probabil asa va fi la toate paginile mai putin login/signup deoarece la toate trebuie sa fii logat
 // ca sa stim ce date sa aducem
 module.exports = async (request, response, urlArray) => {
-    let body = {}
-
-    await request.on('data', data => {
-        body = JSON.parse(data)
-    })
     const headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
@@ -30,42 +25,30 @@ module.exports = async (request, response, urlArray) => {
         return;
     } else {
         if (urlArray[1] === 'signup') {
-            signupRoute(request, response, urlArray, body)
-        }
-        if (urlArray[1] === 'login') {
-            loginRoute(request, response, urlArray, body)
-        }
-        if (urlArray[1] === 'dashboard') {
-            if (verifyAuthToken(request, response)) {
-                dashboardRoute(request, response, urlArray, body)
+            signupRoute(request, response, urlArray)
+        } else if (urlArray[1] === 'login') {
+            loginRoute(request, response, urlArray)
+        } else {
+            const verified = verifyAuthToken(request, response)
+            if (verified) {
+                if (urlArray[1] === 'collection') {
+                    collectionRoute(request, response, urlArray, verified._id);
+                }
+                if (urlArray[1] === 'collectionTypes') {
+                    collectionTypesRoute(request, response, urlArray)
+                }
+                if (urlArray[1] === 'artefacts') {
+                    addArtefactsRoute(request, response, urlArray);
+                }
+                if (urlArray[1] === 'rarity') {
+                    artefactRarity(request, response, urlArray)
+                }
+                if (urlArray[1] === 'condition') {
+                    artefactCondition(request, response, urlArray)
+                }
             }
         }
-        if (urlArray[1] === 'collection') {
-            if (verifyAuthToken(request, response)) {
-                collectionRoute(request, response, urlArray, body);
-            }
-        }
-        if (urlArray[1] === 'collectionTypes') {
-            if (verifyAuthToken(request, response)) {
-                collectionTypesRoute(request, response, urlArray, body)
-            }
-        }
-        if(urlArray[1] === 'artefacts')
-        {
-            if (verifyAuthToken(request, response)){
-            addArtefactsRoute(request, response, urlArray, body);
-            }
-        }
-        if (urlArray[1] === 'rarity') {
-            if (verifyAuthToken(request, response)) {
-                artefactRarity(request, response, urlArray, body)
-            }
-        }
-        if (urlArray[1] === 'condition') {
-            if (verifyAuthToken(request, response)) {
-                artefactCondition(request, response, urlArray, body)
-            }
-        }
+
     }
 }
 

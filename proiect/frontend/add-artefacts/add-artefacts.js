@@ -7,9 +7,8 @@ const onSubmit = async (values) => {
             headers: {
                 'Accept': 'application/json',
                 'auth-token': `${localStorage.getItem('auth-token')}`,
-                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(values)
+            body: values
         })
         const json = await response.json()
         return json
@@ -78,6 +77,8 @@ submitButton.addEventListener('click', async () => {
     let description = document.getElementById('description').value
     let country = document.getElementById('country').value
     let usageHistory = document.getElementById('usageHistory').value
+    let photos = document.getElementById('photos').files
+    photos = Array.from(photos)
     formValues = {
         name,
         year,
@@ -89,12 +90,23 @@ submitButton.addEventListener('click', async () => {
         usageHistory,
         userId: localStorage.getItem('id'),
         collectionId,
-        numberOfLikes: 0
+        numberOfLikes: 0,
+        photos
     }
-    let response = await onSubmit(formValues)
-    if (!response.error) {
-        window.location.href = '/dashboard'
+
+    const data = new FormData()
+    for ( var key in formValues ) {
+        if(key === 'photos') {
+            formValues.photos && formValues.photos.length > 0 &&
+            formValues.photos.forEach((photo,index) => data.append(`${key}[${index}]`, photo))
+        } else {
+            data.append(key, formValues[key]);
+        }
     }
+    let response = await onSubmit(data)
+    // if (!response.error) {
+    //     window.location.href = '/artefacts'
+    // }
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collection = await getCollection()
@@ -124,6 +136,4 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             opt.innerHTML = type.name;
             selectElement2.appendChild(opt);
     })   
-    
-    
 })
