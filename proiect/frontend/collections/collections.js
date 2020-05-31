@@ -43,7 +43,4 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         </div>
         `
     })
-    if (response.status === 401) {
-        window.location.href = '/login'
-    }
 })

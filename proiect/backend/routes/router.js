@@ -7,6 +7,7 @@ const addArtefactsRoute = require("./addArtefactsRoute")
 const artefactRarity = require('./artefactRarityRoute')
 const artefactCondition = require('./artefactConditionRoute')
 const collectionTypesRoute = require('./collectionTypesRoute')
+const userRoute = require('./userRoute')
 
 // routerul verifica ce pagina e in request si te trimite pe ruta ei.. la dashboard verific daca exista auth tokenul in headers deoarece 
 // acela este un call privat.. cel mai probabil asa va fi la toate paginile mai putin login/signup deoarece la toate trebuie sa fii logat
@@ -45,6 +46,9 @@ module.exports = async (request, response, urlArray) => {
                 }
                 if (urlArray[1] === 'condition') {
                     artefactCondition(request, response, urlArray)
+                }
+                if (urlArray[1] === 'users') {
+                    userRoute(request, response, urlArray, verified._id)
                 }
             }
         }

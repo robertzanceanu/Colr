@@ -3,7 +3,7 @@ const getTypes = require('../controllers/collectionTypesController/getCollection
 module.exports = (request,response,routes) => {
     if(request.method === 'GET') {
         if(!routes[2]) {
-            getTypes(request,response,body)
+            getTypes(request,response)
         }
     }
 }
