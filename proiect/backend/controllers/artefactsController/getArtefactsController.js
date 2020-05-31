@@ -1,14 +1,24 @@
 const Artefacts = require('../../model/artefactsModel') 
 const Collections = require('../../model/collectionsModel')
-const CollectionTypes = require('../../model/collectionTypesModel')
+const ArtefactRarity = require('../../model/rarityModel')
+const ArtefactCondition = require('../../model/conditionModel')
 
-const getCollectionType = async (collection) => {
+const getArtefactRarity = async (artefact) => {
 
     return new Promise (async (resolve) => {
-        const collectionType =  await CollectionTypes.find({
-            _id: collection.collectionTypeId
+        const artefactRarity =  await ArtefactRarity.find({
+            _id: artefact.rarity
         })
-        resolve(collectionType[0])
+        resolve(artefactRarity[0])
+    })
+}
+const getArtefactCondition = async (artefact) => {
+
+    return new Promise (async (resolve) => {
+        const artefactCondition =  await ArtefactCondition.find({
+            _id: artefact.condition
+        })
+        resolve(artefactCondition[0])
     })
 }
 const getCollection = async (artefacts)=>{
@@ -25,19 +35,21 @@ module.exports = async (request,response,userId)=> {
         let artefactsToSend =[]
         await Promise.all(artefacts.map(async(artefact)=>{
             collection = await getCollection(artefact)
+            rarity = await getArtefactRarity(artefact)
+            condition = await getArtefactCondition(artefact)
             artefactsToSend.push({
                 _id:artefacts._id,
                 collection,
-                name:artefacts.name,
-                year:artefacts.year,
-                value:artefacts.value,
-                rarity:artefacts.rarity,
-                condition:artefacts.condition,
-                description:artefacts.description,
-                photos:artefacts.photos,
-                numberOfLikes:artefacts.numberOfLikes,
-                country:artefacts.country,
-                usageHistory:artefacts.usageHistory
+                name:artefact.name,
+                year:artefact.year,
+                value:artefact.value,
+                rarity,
+                condition,
+                description:artefact.description,
+                photos:artefact.photos,
+                numberOfLikes:artefact.numberOfLikes,
+                country:artefact.country,
+                usageHistory:artefact.usageHistory
             })
         }))
         response.writeHead(200, { "Content-Type": "application/json" })

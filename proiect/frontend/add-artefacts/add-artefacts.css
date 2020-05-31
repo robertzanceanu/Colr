@@ -40,6 +40,7 @@ input[type=text], input[type=textarea], input[type=number] {
     width: 100%;
     background-color: #FFEECC;
     overflow: auto;
+    margin-bottom: 10px;
 }
 .form-group {
     width: 100%;
@@ -84,6 +85,14 @@ select{
     margin-top: 1rem;
     outline: none;
     }
+footer{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: right;
+        padding-right: 10px;
+    }
 @media screen and (max-width: 850px) {
     .formular {
         margin-top: 15%;
@@ -91,5 +100,8 @@ select{
         margin-bottom: 60px;
         height: 85%;
         width: 70%;
+    }
+    footer{
+        position: relative;
     }
 }

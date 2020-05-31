@@ -1,13 +1,13 @@
-.dashboard-page-wrapper {
+.artefacts-page-wrapper {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     height: fit-content;
 }
 
-.dashboard-page-card-wrapper {
+.artefact-page-card-wrapper {
     width: 360px;
-    height: 260px;
+    height: 230px;
     border-radius: 8px;
     background: #FFEECC;
     padding: 10px 15px 20px 15px;
@@ -15,26 +15,55 @@
     flex-direction: column;
     font-family: 'Montserrat';
     box-sizing: border-box;
-    margin-right: 30px;
-    margin-bottom: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
-.dashboard-page-card-name {
+.artefact-page-card-name {
     font-size: 20px;
     color: #1F4B59;
     font-weight: bold;
     align-self: center;
     margin-bottom: 15px;
 }
-
-.dashboard-page-card-collection-info {
+.artefact-infos-wrapper {
+    display:flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-between;
+}
+.artefact-info-text {
     font-size: 18px;
     color: #1F4B59;
     margin-bottom: 10px;
-    white-space: nowrap;
+    white-space:wrap;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    width: fit-content;
+    padding:5px;
+}
+.artefact-info-text span {
+    font-weight:bold;
+}
+
+.artefact-link {
+    margin-top: auto;
+    font-size: 18px;
+    color: #1F4B59;
+    margin-left: auto;
+    text-decoration: underline;
+}
+
+.artefact-page-card-collection-description {
+    font-size: 18px;
+    color: #1F4B59;
+    margin-bottom: 10px;
+    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+    max-height: 100px;
+    height: 100%;
 }
 
 .dashboard-page-card-collection-info span {
@@ -49,33 +78,21 @@
 .dashboard-page-card-bottom-infos:hover {
     text-decoration: underline;
 }
-footer.container {
-    margin: 45px auto 0;
-    padding: 15px 15px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  footer .copyright {
-    margin-top: 15px;
-  }
-  .social-icons a{
-      display: block;
-      font-size: 20px;
-      padding-right: 10px;
-  }
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
 
 @media screen and (max-width: 800px) {
-    .dashboard-page-card-wrapper {
+    .artefact-page-card-wrapper {
         width: 100%;
         margin-right: 0;
         padding: 10px 15px;
     }
-
-    footer {
-        align-items: center;
-    }
-    footer .social-icons{
-        display:inline-flex;
+    footer{
+        position: relative;
     }
 }
