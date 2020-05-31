@@ -38,7 +38,7 @@ module.exports = async (request,response,userId)=> {
             rarity = await getArtefactRarity(artefact)
             condition = await getArtefactCondition(artefact)
             artefactsToSend.push({
-                _id:artefacts._id,
+                _id:artefact._id,
                 collection,
                 name:artefact.name,
                 year:artefact.year,

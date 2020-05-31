@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             <p class="artefact-page-card-collection-description">
                 ${artefact.description}
             </p>
-            <a href="/view-artefact/${artefact._id}" class="artefact-link">Vezi tot despre artefact</a>
+            <a href="/view-artefacts/${artefact._id}" class="artefact-link">Vezi tot despre artefact</a>
         </div>
         `
     })
