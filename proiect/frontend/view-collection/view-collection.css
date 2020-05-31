@@ -121,3 +121,49 @@ footer.container {
     text-align: center;
     width: 50%;
   }
+  @media screen and (max-width: 850px){
+      li>img{
+        width: 230px;
+        height: 346px;
+      }
+      .page__content__text ul{
+          padding-top: 0px;
+      }
+      .page-content-photos{
+        height: 350px;
+        width: 240px;
+        margin-left: 0;
+      }
+      .page__content__text h1{
+          font-size: 40px;
+      }
+      .page__content__text h2{
+          font-size: 30px;
+      }
+      .still_row{
+        align-items: center;
+      }
+      .still_row h1{
+        font-size: 15px;
+        text-align: left;
+        max-width: 150px;
+      }
+      .still_row p{
+        font-size: 15px;
+        line-height: 25px;
+        text-align: right;
+      }
+      .page__content__text p{
+          font-size: 14px;
+      }
+      .simple-table-row-name{
+          font-size: 14px;
+      }
+      .simple-table-row-link{
+          font-size: 12px;
+      }
+      .btn{
+          padding: 15px 0px;
+          width: auto;
+      }
+  }

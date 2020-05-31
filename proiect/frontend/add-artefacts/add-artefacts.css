@@ -42,6 +42,7 @@ input[type=text], input[type=textarea], input[type=number] {
     overflow: auto;
     margin-bottom: 10px;
 }
+
 .form-group {
     width: 100%;
     margin-bottom: 20px;
@@ -96,10 +97,8 @@ footer{
 @media screen and (max-width: 850px) {
     .formular {
         margin-top: 15%;
-        margin-left: 15%;
         margin-bottom: 60px;
-        height: 85%;
-        width: 70%;
+        width: 90%;
     }
     footer{
         position: relative;
