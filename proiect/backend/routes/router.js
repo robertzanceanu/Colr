@@ -39,7 +39,7 @@ module.exports = async (request, response, urlArray) => {
                     collectionTypesRoute(request, response, urlArray)
                 }
                 if (urlArray[1] === 'artefacts') {
-                    addArtefactsRoute(request, response, urlArray);
+                    addArtefactsRoute(request, response, urlArray,verified._id);
                 }
                 if (urlArray[1] === 'rarity') {
                     artefactRarity(request, response, urlArray)

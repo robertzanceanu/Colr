@@ -1,4 +1,5 @@
-const addArtefactsController = require('../controllers/addArtefactsController/addArtefactsController.js')
+const addArtefactsController = require('../controllers/artefactsController/addArtefactsController.js')
+const getArtefactController = require('../controllers/artefactsController/getArtefactsController')
 const multiparty = require('multiparty');
 const fs = require('fs')
 const path = require('path')
@@ -33,11 +34,19 @@ const getFormData = (request) => {
     })
 }
 
-module.exports = async (request, response, routes) => {
+module.exports = async (request, response, routes,userId) => {
     if (request.method === 'POST') {
         const body = await getFormData(request)
         if (routes[2] === 'add') {
             addArtefactsController(request, response, body)
         }
+        
     }
+    else
+        if(request.method === 'GET'){
+            if(routes[2]==='get-artefacts')
+            {
+                getArtefactController(request,response,userId)
+            }
+        }
 }

@@ -77,11 +77,20 @@
 .dashboard-page-card-bottom-infos:hover {
     text-decoration: underline;
 }
-
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
 @media screen and (max-width: 800px) {
     .collections-page-card-wrapper {
         width: 100%;
         margin-right: 0;
         padding: 10px 15px;
+    }
+    footer{
+        position: relative;
     }
 }
