@@ -30,7 +30,8 @@ const routes = [
     'signup',
     'view-artefacts',
     'view-collection',
-    'artefacts'
+    'artefacts',
+    'edit-artefact'
 ]
 http.createServer(function (request, response) {
     //aici o sa imi explic in cuvinte logica

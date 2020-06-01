@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     <p>${artefactInfos.description}</p>
                
     </div>
-    <a href="/add-artefacts" class="btn">Adaugare artefact in colectie</a>
+    <a href="/edit-artefact/${artefactInfos._id}" class="btn" id="submit-button">Editare artefact</a>
         `
     }
 })

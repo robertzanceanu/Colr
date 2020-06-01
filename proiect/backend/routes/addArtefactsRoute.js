@@ -1,6 +1,8 @@
 const addArtefactsController = require('../controllers/artefactsController/addArtefactsController.js')
 const getArtefactController = require('../controllers/artefactsController/getArtefactsController')
 const getArtefactById = require('../controllers/artefactsController/getArtefactById.js')
+const updateArtefactController = require('../controllers/artefactsController/updateArtefactController')
+
 const multiparty = require('multiparty');
 const fs = require('fs')
 const path = require('path')
@@ -43,7 +45,7 @@ module.exports = async (request, response, routes,userId) => {
         }
         
     }
-        if(request.method === 'GET'){
+    if(request.method === 'GET'){
             console.log(routes)
             if(routes[2]==='get-artefacts')
             {
@@ -53,5 +55,14 @@ module.exports = async (request, response, routes,userId) => {
             {
                 getArtefactById(request,response,userId,routes[3])
             }
+    }
+    if(request.method == 'PUT'){
+        if (routes[2] === 'update-artefact') {
+            let body = {}
+            await request.on('data', async data => {
+                body = JSON.parse(data)
+            })
+            updateArtefactController(request, response, routes[3], body)
+        }
     }
 }
