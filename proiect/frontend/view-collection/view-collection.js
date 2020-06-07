@@ -72,7 +72,11 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             `)
         }
         </div>
+        <div class ="buttons">
         <a href="/add-artefacts" class="btn">Adaugare artefact in colectie</a>
+        
+        <a href="/edit-colection/${collectionInfos._id}" class="btn-edit">Editeaza Colectia Actuala</a>
+        </div>
         `
         
     }

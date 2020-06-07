@@ -5,6 +5,8 @@ module.exports = (request,response,routes,body) => {
         if(routes[2] === 'infos'){
             dashboardInfosController(request,response, body)
         }
+        
     } 
+    
 
 }

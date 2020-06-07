@@ -16,7 +16,27 @@ const getArtefactById = async(locationId) => {
         console.log(err)
     }
 }
+
+const getArtefacts = async() => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/artefacts/export`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const resp = await response.csv()
+        return resp
+    }catch (err) {
+        console.log(err)
+    }
+}
+
 window.addEventListener('DOMContentLoaded', async (event) => {
+    const verif = getArtefacts()
+    console.log(verif)
     const locationArray = location.pathname.split('/')
     console.log(locationArray)
     const artefactInfos = await getArtefactById(locationArray[2])

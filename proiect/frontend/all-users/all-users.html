@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../globals/global.css">
-    <link rel="stylesheet" type="text/css" href="./globalStatistics.css">
-    <title>Statistici</title>
+    <link rel="stylesheet" type="text/css" href="./all-users.css">
+    <title>Utilizatori</title>
 </head>
 
 <body>
@@ -61,26 +61,48 @@
                 </div>
                 <h1 class="page-details-mobile-current-page">Adaugare Artefact</h1>
             </div>
-            <div class="container1">
-                <h1 class="heading">Statistici</h1>
-                <div class="counter ">
-                  <div class="item">
-                    <img src="../globals/images/account-circle.png">
-                    <p id="number1" class="number">0</p>
-                    <p class="label">Numar utilizatori</p>
-                  </div>
-                  <div class="item">
-                    <img src="../globals/images/alpha-c-box.png">
-                    <p id="number2" class="number">0</p>
-                    <p class="label">Colectii</p>
-                  </div>
-                  <div class="item">
-                    <img src="../globals/images/calendar-question.png">
-                    <p id="number3" class="number">0</p>
-                    <p class="label">Artefacte</p>
-                  </div>
-                </div>
-              </div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Job Title</th>
+                    <th>Twitter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-column="First Name">James</td>
+                    <td data-column="Last Name">Matman</td>
+                    <td data-column="Job Title">Chief Sandwich Eater</td>
+                    <td data-column="Twitter">@james</td>
+                  </tr>
+                  <tr>
+                    <td data-column="First Name">Andor</td>
+                    <td data-column="Last Name">Nagy</td>
+                    <td data-column="Job Title">Designer</td>
+                    <td data-column="Twitter">@andornagy</td>
+                  </tr>
+                  <tr>
+                    <td data-column="First Name">Tamas</td>
+                    <td data-column="Last Name">Biro</td>
+                    <td data-column="Job Title">Game Tester</td>
+                    <td data-column="Twitter">@tamas</td>
+                  </tr>
+                  <tr>
+                    <td data-column="First Name">Zoli</td>
+                    <td data-column="Last Name">Mastah</td>
+                    <td data-column="Job Title">Developer</td>
+                    <td data-column="Twitter">@zoli</td>
+                  </tr>
+                  <tr>
+                    <td data-column="First Name">Szabi</td>
+                    <td data-column="Last Name">Nagy</td>
+                    <td data-column="Job Title">Chief Sandwich Eater</td>
+                    <td data-column="Twitter">@szabi</td>
+                  </tr>
+                </tbody>
+              </table>
             <footer class="container">
         <div class="copyright">
             2020 Team Colr All Rights Reserved.
@@ -102,7 +124,7 @@
          
     </div>
     <script src="../globals/globals.js"></script>
-    <script src="globalStatistics.js"></script>
+    <script src="all-users.js"></script>
 </body>
 
 </html>

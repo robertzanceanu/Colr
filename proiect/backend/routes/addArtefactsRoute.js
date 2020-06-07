@@ -2,7 +2,7 @@ const addArtefactsController = require('../controllers/artefactsController/addAr
 const getArtefactController = require('../controllers/artefactsController/getArtefactsController')
 const getArtefactById = require('../controllers/artefactsController/getArtefactById.js')
 const updateArtefactController = require('../controllers/artefactsController/updateArtefactController')
-
+const getArtefactControllerExport = require('../controllers/artefactsController/getArtefactControllerExport')
 const multiparty = require('multiparty');
 const fs = require('fs')
 const path = require('path')
@@ -54,6 +54,9 @@ module.exports = async (request, response, routes,userId) => {
             if (routes[2]==='view-artefacts')
             {
                 getArtefactById(request,response,userId,routes[3])
+            }
+            if(routes[2] === 'export') {
+                getArtefactControllerExport(request, response, userId)
             }
     }
     if(request.method == 'PUT'){
