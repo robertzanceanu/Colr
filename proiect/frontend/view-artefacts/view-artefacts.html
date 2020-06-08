@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang='ro'>
-    <head>
-        <title>Colr Artefacte</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../globals/global.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="./view-artefacts.css">
-    </head>
-    <body>
-        <div class="body-wrapper">
-            <nav class='navigation' id="navigation">
-                <div class="navigation-top">
-                    <h1 class="navigation-close" id="hide-menu">x</h1>
-                    <h1 class="navigation-logo">Colr</h1>
+
+<head>
+    <title>Colr Artefacte</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../globals/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./view-artefacts.css">
+</head>
+
+<body>
+    <div class="body-wrapper">
+        <nav class='navigation' id="navigation">
+            <div class="navigation-top">
+                <h1 class="navigation-close" id="hide-menu">x</h1>
+                <h1 class="navigation-logo">Colr</h1>
+            </div>
+            <div class="navigation-pages">
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/collections">Colectii</a>
                 </div>
-                <div class="navigation-pages">
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="/collections">Colectii</a>
-                    </div>
-                    <div class="navigation-page-wrapper navigation-page-wrapper-selected">
-                        <a class="navigation-page navigation-page-selected" href="/artefacts">Artefacte</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="/add-collection">Adauga colectie</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="/clasament">Clasament</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="/globalStatistics">Statistici globale</a>
-                    </div>
-                    <div class="navigation-page-wrapper">
-                        <a class="navigation-page" href="/myAccount">Contul meu</a>
-                    </div>
-                    <div class="navigation-user">
-                        <div class="page-user">
-                            <img src="../globals/images/account.png" alt='account'/>
-                            <h1 class="page-user-name">Vasile Gheorghe</h1>
-                        </div>
-                        <a class="page-logout" href="/login">Delogheaza-te</a>
-                    </div>
+                <div class="navigation-page-wrapper navigation-page-wrapper-selected">
+                    <a class="navigation-page navigation-page-selected" href="/artefacts">Artefacte</a>
                 </div>
-            </nav>
-     <div class="page-wrapper">
-                <div class="page-top">
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/add-collection">Adauga colectie</a>
+                </div>
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/clasament">Clasament</a>
+                </div>
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/globalStatistics">Statistici globale</a>
+                </div>
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/myAccount">Contul meu</a>
+                </div>
+                <div class="navigation-user">
                     <div class="page-user">
-                        <img src="../globals/images/account.png" alt='account'/>
+                        <img src="../globals/images/account.png" alt='account' />
                         <h1 class="page-user-name">Vasile Gheorghe</h1>
                     </div>
                     <a class="page-logout" href="/login">Delogheaza-te</a>
                 </div>
-                <div class="page-details-mobile">
-                    <div class="page-details-mobile-burger " id="show-menu">
-                        <div class="page-details-mobile-burger-line"></div>
-                        <div class="page-details-mobile-burger-line"></div>
-                        <div class="page-details-mobile-burger-line"></div>
-                    </div>
-                    <h1 class="page-details-mobile-current-page">Artefact</h1>
+            </div>
+        </nav>
+        <div class="page-wrapper">
+            <div class="page-top">
+                <div class="page-user">
+                    <img src="../globals/images/account.png" alt='account' />
+                    <h1 class="page-user-name">Vasile Gheorghe</h1>
                 </div>
-                <section class="page-content-colectie" id = "infos">
+                <a class="page-logout" href="/login">Delogheaza-te</a>
+            </div>
+            <div class="page-details-mobile">
+                <div class="page-details-mobile-burger " id="show-menu">
+                    <div class="page-details-mobile-burger-line"></div>
+                    <div class="page-details-mobile-burger-line"></div>
+                    <div class="page-details-mobile-burger-line"></div>
+                </div>
+                <h1 class="page-details-mobile-current-page">Artefact</h1>
+            </div>
+            <section class="page-content-colectie" id="infos">
                 <!-- <div class="page-content-photos">
                 <ul>
                     <li>
@@ -101,29 +103,33 @@
 
 Why do we use it?</p>
   </div> -->
-  
-            <a href="javascript:;" class="btn">Adaugare artefact</a>
-           <footer class="container">
-        <div class="copyright">
-            ©2020 Team Colr All Rights Reserved.
+
+                <a href="javascript:;" class="btn">Adaugare artefact</a>
+
+                <footer class="container">
+                    <div class="copyright">
+                        ©2020 Team Colr All Rights Reserved.
+                    </div>
+                    <div class="social-icons">
+                        <a href="javascript:;">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="javascript:;">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="javascript:;">
+                            <i class="fa fa-google"></i>
+                        </a>
+                    </div>
+
+                </footer>
+            </section>
+            
+
         </div>
-        <div class="social-icons">
-            <a href="javascript:;">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a href="javascript:;">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="javascript:;">
-                <i class="fa fa-google"></i>
-            </a>
-        </div>
-       
-    </footer>
-    </section>
-    </div>
     </div>
     <script src="../globals/globals.js"></script>
     <script src="./view-artefacts.js"></script>
-    </body>
-    </html>
+</body>
+
+</html>
