@@ -26,7 +26,6 @@ const getArtefactCondition = async (artefact) => {
 }
 
 module.exports = async (reqeust, response, userId, artefactId) => {
-    console.log(artefactId)
     const artefact = await Artefact.findOne({ _id: artefactId, userId })
     const collectionsArtefacts = await Artefact.find({ artefactId })
     const rarity = await getArtefactRarity(artefact)

@@ -3,6 +3,8 @@ const getArtefactController = require('../controllers/artefactsController/getArt
 const getArtefactById = require('../controllers/artefactsController/getArtefactById.js')
 const updateArtefactController = require('../controllers/artefactsController/updateArtefactController')
 const getArtefactControllerExport = require('../controllers/artefactsController/getArtefactControllerExport')
+const exportPdfController = require('../controllers/artefactsController/artefactExportPdfController')
+
 const multiparty = require('multiparty');
 const fs = require('fs')
 const path = require('path')
@@ -37,29 +39,30 @@ const getFormData = (request) => {
     })
 }
 
-module.exports = async (request, response, routes,userId) => {
+module.exports = async (request, response, routes, userId) => {
     if (request.method === 'POST') {
         const body = await getFormData(request)
         if (routes[2] === 'add') {
             addArtefactsController(request, response, body)
         }
-        
+
     }
-    if(request.method === 'GET'){
-            console.log(routes)
-            if(routes[2]==='get-artefacts')
-            {
-                getArtefactController(request,response,userId)
-            }
-            if (routes[2]==='view-artefacts')
-            {
-                getArtefactById(request,response,userId,routes[3])
-            }
-            if(routes[2] === 'export') {
-                getArtefactControllerExport(request, response, userId)
-            }
+    if (request.method === 'GET') {
+        console.log(routes)
+        if (routes[2] === 'get-artefacts') {
+            getArtefactController(request, response, userId)
+        }
+        if (routes[2] === 'view-artefacts') {
+            getArtefactById(request, response, userId, routes[3])
+        }
+        if (routes[2] === 'export-csv') {
+            getArtefactControllerExport(request, response, userId)
+        }
+        if(routes[2] === 'export-pdf') {
+            exportPdfController(request, response, userId)
+        }
     }
-    if(request.method == 'PUT'){
+    if (request.method == 'PUT') {
         if (routes[2] === 'update-artefact') {
             let body = {}
             await request.on('data', async data => {
