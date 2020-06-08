@@ -30,8 +30,20 @@ const getCollection = async (artefacts) => {
         resolve(collection)
     })
 }
-module.exports = async (request, response, userId) => {
-    let artefacts = await Artefacts.find({})
+module.exports = async (request, response, userId, queryParams) => {
+    let filters = {}
+    if (queryParams.collectionId) {
+        filters.collectionId = queryParams.collectionId
+    }
+    if (queryParams.rarityId) {
+        filters.rarity = queryParams.rarityId
+    }
+    if (queryParams.conditionId) {
+        filters.condition = queryParams.conditionId
+    }
+    console.log(queryParams.rarityId, filters)
+
+    let artefacts = await Artefacts.find(filters)
     let artefactsToSend = []
     await Promise.all(artefacts.map(async (artefact) => {
         const collection = await getCollection(artefact)
@@ -39,7 +51,7 @@ module.exports = async (request, response, userId) => {
         const condition = await getArtefactCondition(artefact)
         artefactsToSend.push({
             _id: artefact._id,
-            collection:collection,
+            collection: collection,
             name: artefact.name,
             year: artefact.year,
             value: artefact.value,

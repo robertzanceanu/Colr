@@ -11,8 +11,16 @@ const getCollectionType = async (collection) => {
     })
 }
 
-module.exports = async (request, response, userId) => {
-    let collections = await Collections.find({userId:userId})
+module.exports = async (request, response, userId, queryParams) => {
+    let collections = []
+    if(queryParams) {
+        if(queryParams.getAll === 'true') {
+            collections = await Collections.find({})
+        }
+    } else {
+        collections = await Collections.find({userId:userId})
+    }
+    
     let collectionsToSend = []
     await Promise.all(collections.map(async (collection) => {
         collectionType = await getCollectionType(collection)    
