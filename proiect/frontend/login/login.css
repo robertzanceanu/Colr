@@ -14,6 +14,7 @@ button {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
+    margin-bottom: 5%;
     border-radius: 25px;
 }  
 button:hover {
@@ -39,7 +40,7 @@ input[type=password]  {
 .signin-form {
     margin-top: 23%;
     margin-left: 25%;
-    height: 46%;
+    height: fit-content;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -97,7 +98,7 @@ input[type=password]  {
         margin-top: 55%;
         margin-left: 15%;
         margin-right: 15%;
-        height: 40%;
+        height: fit-content;
         width: 70%;
     }
     .singup-button button {
@@ -128,7 +129,7 @@ input[type=password]  {
         margin-top: 50%;
         margin-left: 15%;
         margin-right: 15%;
-        height: 45%;
+        height: fit-content;
         width: 70%;
     }
     .singup-button button {
@@ -159,7 +160,7 @@ input[type=password]  {
         margin-top: 35%;
         margin-left: 15%;
         margin-right: 15%;
-        height: 50%;
+        height: fit-content;
         width: 70%;
     }
     .singup-button button {
@@ -190,7 +191,7 @@ input[type=password]  {
         margin-top: 25%;
         margin-left: 15%;
         margin-right: 15%;
-        height: 60%;
+        height: fit-content;
         width: 70%;
     }
     .singup-button button {
@@ -221,7 +222,7 @@ input[type=password]  {
         margin-top: 20%;
         margin-left: 15%;
         margin-right: 15%;
-        height: 65%;
+        height: fit-content;
         width: 70%;
     }
     .singup-button button {

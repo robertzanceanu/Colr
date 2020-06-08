@@ -17,15 +17,12 @@
        </div>
         <section id="descriere">
         <h3>1. Descriere</h3>
-        <p>  Foow (Footwear Web Assistant) este o aplicație web dedicată tuturor persoanelor care au nevoie de un ajutor când vine vorba
-          despre alegerea unei perechi de încălțăminte pentru o anumită ocazie. Scopul aplicației este acela de a ajuta femeile și barbații să
-          găsească perechea de încălțăminte ideală pentru un eveniment sau pentru o ocazie specială. De asemenea, adulții pot căuta recomandări
-           și pentru copiii lor, băieței sau fetițe.
-           Utilizând o interfață prietenoasă și ușor de folosit, utilizatorul va primi recomandările în urma selecției unor filtre.
-           Mai exact aceștia vor primi mai multe imagini cu diferite perechi de pantofi care corespund filtrelor de căutare și aferent vor avea și site-ul
-            de pe care vor putea comanda acei papuci.
-           Fiecare pereche de încălțăminte va putea fi votată de către utilizatori si fiecare recomandare va putea fi share-uită pe site-urile
-            de socializare.
+        <p>  In ziua de azi, tot mai multi oameni au pasiuni diverse. O pasiune de sute si sute de ani, care nu a murit nici in prezent, este 
+          colectionarea diverselor obiecte. Inspirati de secolul vitezei si era tehnologiei, dorim sa oferim un suport in gestionarea colectiilor si 
+          sa le oferim un  "share" mult mai usor din cadru online. 
+              COLR reprezinta mediu ideal pentru pasionatii de "a le colectionarii". Aceasta permite unui utilzator sa isi creeze mai multe colectii si sa adauge artefacte in ele. Fiecare dintre acestea(colectia si artefactul) va avea niste caracteristici predefinite, stabilite la adaugare, dar vor avea si cate o descriere. Artefactele vor avea o mica istorie, un pret si alte cateva campuri ce au ca si scop descrierea valorii acestuia. O colectie este in mare parte caracterizata de artefactele ce le contine, in descrierea ei aparand cel mai valoros artefact.
+              Artefactele si colectiile pot fi editate folosind structura de la adaugare, fara a lasa sa fie editate lucrurile foarte importante,acestea pot fi importate sub forma de csv sau pdf.
+              In cadrul aplicatiei, utilizatori vor putea aprecia artefactele ce i-au impresionat, iar pe baza lor se va face un clasament sau vor putea consulta pagina de statistici unde vor vedea cati utilizatori ,colectii sau artefacte sunt.
         </p>
     </section>
     <section>
@@ -34,14 +31,14 @@
         <p><strong>2.1.1</strong> Acesta are acces pe toate paginile din interfață</p>
         <p><strong>2.1.2</strong> Este autorizat să: </p>
         <ul>
-        <li> vizualizeze toate colecțiile</li>
+        <li> vizualizeze colecțiile personale</li>
         <li> vizualizeze toate artefactele</li>
         <li> adauge colecții</li>
         <li> adauge artefacte</li>
         <li> să aprecieze artefacte</li>
         <li> să vizualizeze statisticile</li>
         <li> să vizualizeze clasamentul</li>
-        <li> se deconecteze;</li>
+        <li> se deconecteze</li>
         </ul>
         <p><strong>2.2 Administrator:</strong> Suplimentar, acesta are acces la informațiile tuturor utilizatorilor, poate dezactiva un cont și de
             asemenea poate șterge orice colecție sau artefact, chiar dacă acestea nu îi aparțin.
@@ -57,12 +54,15 @@
         <p><strong>Scenariu/Pași:</strong></p>
         <ol>
           <li>Se conectează</li>
-          <li>Este direcționat către pagina ce conține toate colecțiile</li>
-          <li>Deschide o colecție</li>
-          <li>Oferă rating sugestiilor</li>
-          <li>Dă share la sugestiile aplicației</li>
+          <li>Este direcționat către pagina ce conține colecțiile personale</li>
+          <li>Accesează pagina de artefacte</li>
+          <li>Setează filtrele dorite</li>
+          <li>Accesează un artefact</li>
+          <li>Apreziază artefactul</li>
           <li>Vizualizează statisticile</li>
-          <li>Contactează adminul</li>
+          <li>Creează o colecție nouă</li>
+          <li>Adaugă artefacte în colecție</li>
+          <li>Vizualizează clasamentul</li>
           <li>Se deconectează</li>
         </ol>
 
@@ -70,32 +70,34 @@
         <p><strong> Scenariu/Pași:</strong></p>
         <ol>
           <li>Se conectează</li>
-          <li>Adaugă încălțăminte</li>
-          <li>Șterge încălțăminte</li>
-          <li>Modifică date</li>
-          <li>Șterge contul utilizatorilor</li>
+          <li>Modifică datele colecțiilor</li>
+          <li>Modifică datele artefactelor</li>
+          <li>Șterge colecții</li>
+          <li>Șterge artefacte</li>
+          <li>Șterge conturi ale utilizatorilor</li>
           <li>Se deconectează</li>
         </ol>
 
     <p><strong>Basic flow</strong></p>
     <ol>
-      <li>Utilizatorul va intra pe site si va alege să se conecteze (dacă are deja un cont valabil) sau să se înregistreze (pentru a își crea un cont) și va fi redirecționat pe pagina corespunzatoare (conectare/înregistrare).</li>
-      <li>După ce se va conecta/înregistra va fi redirecționat pe pagina principală unde va primi notificări si de unde poate naviga prin întreaga aplicație folosind meniul de navigare.</li>
-      <li>După ce va alege ce pagină dorește să vadă urmatoarea dată acesta va avea de răspuns la două întrebări legate de evenimentul la care va participa si cum va fi vremea atunci. În cazul paginilor “Contact” si “Statistics” doar va putea vizualiza informațiile de pe acele pagini. Suplimentar din pagina “Contact” va putea trimite mesaje catre administratori.</li>
-      <li>După ce răspunde la cele două întrebari, utilizatorul va fi redirecționat către o pagină care în partea stângă va conține filtre suplimentare iar în restul paginii vor apărea sugestiile de încălțăminte conform filtrelor selectate. În această pagină utilizatorul poate oferi un scor sugestiilor primite și poate da share pe o rețea de socializare.</li>
+      <li>Utilizatorul va intra pe site si va fi direcționat către pagina de conectare. Acolo poate să se conecteze (dacă are deja un cont valabil) sau poate apăsa butonul de înregistrare care îl trimite pe pagina unde își poate creea un cont nou.</li>
+      <li>După ce se va conecta/înregistra va fi redirecționat pe pagina unde sunt listate toate colecțiile personale și de unde poate naviga prin întreaga aplicație folosind meniul de navigare.</li>
+      <li>Utilizatorul poate adăuga colecții și artefacte noi. De asemenea, pe langa colecțiile personale, orice utilizator poate vizualiza toate artefactele din baza de date.</li>
+      <li>Atât colecțiile cât și artefactele pot fi afișate în baza unor filtre pe care utilizatorul le are la dispoziție. Pe pagina ce conține toate artefactele utilizatorul poate descarca un document fie în format csv, fie în format pdf ce conține toate artefactele pe care le-a adăugat.</li>
+      <li>De asemenea, orice utilizator are posibilitatea de a vizualiza statisticile si clasamentul.</li>
     </ol>
     <p><strong>Exception flow</strong></p>
     <ol>
-      <li>În cazul în care utilizatorul sare peste una dintre pagini introducând URL-ul unei alte pagini decât cea care ar trebui să urmeze, va primi o alertă în care este anunțat că a sărit peste niște pași și va fi redirecționat către prima pagină.</li>
+      <li>În cazul în care utilizatorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este disponibilă, acesta va primi un mesaj de eroare 404.</li>
     </ol>
 
     <p><strong>Basic flow</strong></p>
     <ol>
-      <li>În cazul administratorilor, aceștia se conectează si au posibilitatea de a adăuga noi produse, de a șterge produse, de a șterge conturile utilizatorilor sau de modifica anumite informații.</li>
+      <li>În cazul administratorilor, aceștia se conectează și au posibilitatea de a adăuga noi colecții/artefacte, de a șterge colecții/artefacte, de a șterge conturile utilizatorilor sau de modifica anumite informații.</li>
     </ol>
     <p><strong>Exception flow</strong></p>
     <ol>
-      <li>Dacă produsul pe care vor să îl adauge deja există aceștia vor primi un mesaj prin care vor fi anunțați acest lucru.</li>
+      <li>În cazul în care administratorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este disponibilă, acesta va primi un mesaj de eroare 404.</li>
     </ol>
 </section>
 
@@ -111,35 +113,18 @@
             imagini de fundal, pozitii avansate si multe alte optiuni utile in design.</p>
         <p>Partea de backend a aplicației web s-a realizat utilizând <strong>Node.js</strong> datorită vitezei pentru că folosește JavaScript. Fiind o tehnologie open-source,
            Node.js are un depozit comun de instrumente și module foarte mare.</p>
+          <p>PDFKit este o librărie pentru Node.js care ajută la crearea documentelor de tip pdf.</p>
+          <p>json2csv este o librărie care convertește un fișier de tip json în csv.</p>
+          <p>Mongoose oferă o soluție simplă pentru a modela datele aplicației.</p>
+          <p>Toate aceste librării menționate anterior sunt librării open-source.</p>
         <p>Pentru baza de date s-a folosit <strong>MongoDB</strong>.
         </p>
-    </section>
-    <section>
-        <h3>5. Repartizare task-uri</h3>
-        Prototip al interfeței Web
-        <ol>
-            <li>Căluțu Maria-Alexandra : meniul ,pagina principală de home ,pagina pentru admin și  pagina de afișare;</li>
-            <li>Mariniuc Andrei : pagina de logare,pagina de contact, pagina de înregistrare, pagina de statistici;</li>
-            <li>Onofrei Claudia: paginile de selectare a contextului ,atât pentru fetițe , băieței, bărbați și femei;</li>
-        </ol>
-          Arhitectura Aplicației
-        <ol>
-            <li>Căluțu Maria-Alexandra : repartizarea task-urilor, tehnologiile utilizate și secțiunea arhitecturală;</li>
-            <li>Mariniuc Andrei : cele doua UseCase-uri(administrator și utilizator), html, basic flow și exception flow;</li>
-            <li>Onofrei Claudia: actorii, șcenarii de utilizare și descrierea aplicației;</li>
-        </ol>
-          Backend
-        <ol>
-          <li>Căluțu Maria-Alexandra : mecanismul de oferire a sugestiilor, trimitere notificări;</li>
-          <li>Mariniuc Andrei : baza de date, conectare, înregistrare, contact, rating, mecanismul de oferire a sugestiilor;</li>
-          <li>Onofrei Claudia: mecanismul de oferire a sugestiilor, statistici, funcționalitatea de share;</li>
-        </ol>
     </section>
 </article>
 <footer>
     <p>
-        TW 2019 -
-        <a href="https://github.com/MariniucAndrei/FooW-Footwear-Web-Assistant-B-">Github Repository</a>
+        TW 2020 -
+        <a href="https://github.com/robertzanceanu/Colr">Github Repository</a>
 
         - UAIC - Facultatea de Informatica Iasi
     </p>
