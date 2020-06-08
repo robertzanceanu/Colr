@@ -31,8 +31,8 @@ body {
     width: 33.33%;
     height: 100%;
     text-align: center;
-    padding: 0;
     margin: 0;
+    padding-bottom: 20px;
   }
   .counter .item i{
     color: rgba(25, 25, 25, 0.9);
@@ -51,7 +51,14 @@ body {
     font-size: 1.1em;
     padding:10px;;
     text-shadow: 1px 1px 1px #ccc;
-    text-transform: lowercase;
+  }
+  .counter .item a{
+    color: rgba(25, 25, 25, 0.9);
+    font-size: 1.1em;
+    padding:10px;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 1px #ccc;
+
   }
   .counter .item:hover i, 
   .counter .item:hover p{
