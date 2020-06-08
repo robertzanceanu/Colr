@@ -17,7 +17,22 @@ const getArtefactById = async(locationId) => {
     }
 }
 
-
+const likeArtefact = async(artefactId) => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/artefacts/like/${artefactId}`, {
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+        return json
+    } catch(err) {
+        console.log(err)
+    }
+}
 window.addEventListener('DOMContentLoaded', async (event) => {
     const locationArray = location.pathname.split('/')
     const artefactInfos = await getArtefactById(locationArray[2])
@@ -33,7 +48,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         <ul>
         ${artefactInfos.photos && artefactInfos.photos.length > 0 && artefactInfos.photos.map((photo) =>{
             return `
-                <li><img src="${photo.image}"/></li>
+                <li><img src="${photo.image}" alt="img"/></li>
             `
         })}
         </ul>
@@ -41,6 +56,9 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         <h1>Artefact:</h1>
         <br>
         <h2>${artefactInfos.name}</h2>
+        <div class="like-button" id="like-button">
+           <i class="fa fa-heart"></i>
+        </div>
         <br>
         <ul>
         <li class="still_row">
@@ -76,8 +94,19 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                
     </div>
     <a href="/edit-artefact/${artefactInfos._id}" class="btn" id="submit-button">Editare artefact</a>
-      
+
     `
     }
+    const likeButton = document.getElementById('like-button')
+    likeButton.addEventListener('click', async () => {
+        if(!likeButton.classList.contains('liked')) {
+            likeButton.classList.add('liked')
+            const resp = await likeArtefact(locationArray[2])
+            console.log(resp)
+            if(!resp.error) {
+                location.reload()
+            }
+        }
+    })
 })
 

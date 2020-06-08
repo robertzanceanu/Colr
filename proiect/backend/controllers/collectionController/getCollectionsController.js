@@ -22,7 +22,6 @@ module.exports = async (request, response, userId, queryParams) => {
         }
     }
     collections = await Collections.find(collectionFilters)
-    console.log('gagwgwgwgwgwgw', collections)
 
     let collectionsToSend = []
     await Promise.all(collections.map(async (collection) => {

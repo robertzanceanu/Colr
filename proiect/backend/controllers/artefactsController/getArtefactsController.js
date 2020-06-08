@@ -41,7 +41,6 @@ module.exports = async (request, response, userId, queryParams) => {
     if (queryParams.conditionId) {
         filters.condition = queryParams.conditionId
     }
-    console.log(queryParams.rarityId, filters)
 
     let artefacts = await Artefacts.find(filters)
     let artefactsToSend = []
