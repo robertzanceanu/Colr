@@ -83,7 +83,8 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    text-align: center;
+    text-align: right;
+    /* padding-right: 10px; */
 }
 
 @media screen and (max-width: 800px) {

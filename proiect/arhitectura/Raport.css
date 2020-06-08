@@ -1,0 +1,45 @@
+body {
+
+  padding: 0% 5% 0% 5%;
+  font-family: "Libre Baskerville", Times, serif;
+  background:   #edffff;
+  color: #434343;
+  background-image: url(logo.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 200px 200px;
+  backface-visibility: visible;
+}
+
+header {
+  border-top: 8px solid #80d9d9;
+  border-bottom: 2px solid #BDD5E9;
+  box-shadow: 2px 0 4px #BCBCBC;
+  margin-bottom: 64px;
+  background: #fff;
+}
+h1 {
+  text-align: center;
+  letter-spacing: .75px;
+  font-size: 24px;
+  line-height: 32px;
+}
+h2,h3{
+  font-variant: small-caps;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: underline;
+}
+div p{
+  font-variant: small-caps;
+  text-align: center;
+  font-weight: 400;
+}
+footer {
+  border-top: 4px solid #80d9d9;
+  border-bottom: 2px solid #BDD5E9;
+  margin-bottom: 64px;
+  background: #e2ffff;
+}
+
