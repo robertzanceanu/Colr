@@ -18,7 +18,6 @@ const getArtefacts = async () => {
 }
 window.addEventListener('DOMContentLoaded', async (event) => {
     let artefacts = await getArtefacts()
-    console.log("ana are mere",artefacts)
     artefacts && artefacts.length > 0 
     && artefacts.forEach((artefact) => {
         const date = new Date(artefact.year)
@@ -43,7 +42,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             <p class="artefact-page-card-collection-description">
                 ${artefact.description}
             </p>
-            <a href="/view-artefact/${artefact._id}" class="artefact-link">Vezi tot despre artefact</a>
+            <a href="/view-artefacts/${artefact._id}" class="artefact-link">Vezi tot despre artefact</a>
         </div>
         `
     })

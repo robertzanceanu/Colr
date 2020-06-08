@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../globals/global.css">
-    <link rel="stylesheet" type="text/css" href="./globalStatistics.css">
-    <title>Statistici</title>
+    <link rel="stylesheet" type="text/css" href="./edit-artefact.css">
+    <title>Adaugare Artefact</title>
 </head>
 
 <body>
@@ -21,8 +21,8 @@
                 <div class="navigation-page-wrapper">
                     <a class="navigation-page" href="/collections">Colectii</a>
                 </div>
-                <div class="navigation-page-wrapper">
-                    <a class="navigation-page" href="/artefacts">Artefacte</a>
+                <div class="navigation-page-wrapper navigation-page-wrapper-selected">
+                    <a class="navigation-page navigation-page-selected" href="/artefacts">Artefacte</a>
                 </div>
                 <div class="navigation-page-wrapper">
                     <a class="navigation-page" href="/add-collection">Adauga colectie</a>
@@ -33,8 +33,8 @@
                 <div class="navigation-page-wrapper">
                     <a class="navigation-page" href="/globalStatistics">Statistici globale</a>
                 </div>
-                <div class="navigation-page-wrapper navigation-page-wrapper-selected">
-                    <a class="navigation-page navigation-page-selected" href="/myAccount">Contul meu</a>
+                <div class="navigation-page-wrapper">
+                    <a class="navigation-page" href="/myAccount">Contul meu</a>
                 </div>
                 <div class="navigation-user">
                     <div class="page-user">
@@ -61,26 +61,54 @@
                 </div>
                 <h1 class="page-details-mobile-current-page">Adaugare Artefact</h1>
             </div>
-            <div class="container1">
-                <h1 class="heading">Statistici</h1>
-                <div class="counter ">
-                  <div class="item">
-                    <img src="../globals/images/account-circle.png">
-                    <p id="number1" class="number">0</p>
-                    <p class="label">Numar utilizatori</p>
-                  </div>
-                  <div class="item">
-                    <img src="../globals/images/alpha-c-box.png">
-                    <p id="number2" class="number">0</p>
-                    <p class="label">Colectii</p>
-                  </div>
-                  <div class="item">
-                    <img src="../globals/images/calendar-question.png">
-                    <p id="number3" class="number">0</p>
-                    <p class="label">Artefacte</p>
-                  </div>
-                </div>
-              </div>
+            <div class="form" id="form">
+
+                <form class="formular" id="formular" accept-charset="UTF-8" method="post">
+
+                    <br>
+
+                    <h1>Formular</h1>
+
+                    <br>
+                    <div class="form-group">
+                        <p>Nume artefact</p>
+
+                        <input type="text" name="answear1" id="name" maxlength="255" placeholder="Raspuns">
+                    </div>
+
+                    <div class="form-group">
+                        <p>Valoare (RON)</p>
+
+                        <input type="number" min="0" name="answear3" id="value" maxlength="255" placeholder="Raspuns">
+                    </div>
+                    <div class="form-group">
+                        <p>Raritate</p>
+                        <select id="dropdownRaritate">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Condiție</p>
+                        <select id="dropdownCondiție">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Descriere</p>
+                        <input type="text" name="answear6" id="description" maxlength="255" placeholder="Raspuns">
+                    </div>
+                    <div class="form-group">
+                        <p>Țară</p>
+                        <input type="text" name="answear7" id="country" maxlength="255" placeholder="Raspuns">
+                    </div>
+                    <div class="form-group">
+                        <p>Istoric</p>
+                        <input type="text" name="answear8" id="usageHistory" maxlength="255" placeholder="Raspuns">
+                    </div>
+                    <div class="submit-button">
+                        <button type="button" id="submit-button">Trimite formularul</button>
+                    </div>
+
+                </form>
+            </div>
             <footer class="container">
         <div class="copyright">
             2020 Team Colr All Rights Reserved.
@@ -102,7 +130,7 @@
          
     </div>
     <script src="../globals/globals.js"></script>
-    <script src="globalStatistics.js"></script>
+    <script src="./edit-artefact.js"></script>
 </body>
 
 </html>
