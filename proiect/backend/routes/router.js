@@ -3,7 +3,7 @@ const loginRoute = require('./loginRoute')
 const collectionsRoute = require('./collectionsRoute')
 const collectionRoute = require('./collectionRoute')
 const verifyAuthToken = require('../utils/verifyAuthToken')
-const addArtefactsRoute = require("./addArtefactsRoute")
+const artefactsRoute = require("./artefactsRoute")
 const artefactRarity = require('./artefactRarityRoute')
 const artefactCondition = require('./artefactConditionRoute')
 const collectionTypesRoute = require('./collectionTypesRoute')
@@ -39,7 +39,7 @@ module.exports = async (request, response, urlArray) => {
                     collectionTypesRoute(request, response, urlArray)
                 }
                 if (urlArray[1] === 'artefacts') {
-                    addArtefactsRoute(request, response, urlArray,verified._id);
+                    artefactsRoute(request, response, urlArray,verified._id);
                 }
                 if (urlArray[1] === 'rarity') {
                     artefactRarity(request, response, urlArray)

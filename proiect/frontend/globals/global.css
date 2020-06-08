@@ -241,6 +241,7 @@ ul, ol {
     box-sizing: border-box;
     width: 100%;
     height: fit-content;
+    overflow: auto;
 }
 
 .simple-table {
@@ -274,6 +275,55 @@ ul, ol {
     color: #1F4B59;
     font-size: 16px;
     text-decoration: underline;
+}
+.export-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    margin-top: 5px;
+}
+.export-wrapper p {
+    font-size: 20px;
+    color: #1F4B59;
+    margin-bottom: 10px;
+}
+.export-buttons {
+    display:flex;
+    align-items:center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.export-button {
+    border:1px solid black;
+    font-size:20px;
+    box-sizing: border-box;
+    outline: none;
+    background: white;
+    color: black;
+    padding: 10px 20px;
+    height: fit-content;
+    margin-left: 10px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+.export-button-csv {
+    border: 1px solid #1F4B59;
+    color: #1F4B59;
+}
+.export-button-csv:hover {
+    border: 1px solid #1F4B59;
+    color: white;
+    background: #1F4B59;
+}
+.export-button-pdf {
+    border: 1px solid #990000;
+    color: #990000;
+}
+.export-button-pdf:hover {
+    border: 1px solid #990000;
+    color: white;
+    background: #990000;
 }
 @media screen and (max-width: 800px) {
     .body-wrapper {
@@ -395,5 +445,8 @@ ul, ol {
     .page-wrapper .page-content {
         display: initial;
         padding: 20px 15px;
+    }
+    .export-button {
+        margin-bottom: 20px;
     }
 }

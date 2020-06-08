@@ -16,6 +16,42 @@ const getArtefacts = async () => {
         console.log(err)
     }
 }
+
+
+const getArtefactsCsv = async() => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/artefacts/export-csv`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        const resp = await response.text()
+        return resp
+    }catch (err) {
+        console.log(err)
+    }
+}
+
+const getArtefactsPdf = async() => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/artefacts/export-pdf`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                'Content-Type': 'application/pdf'
+            }
+        })
+        const resp = await response.text()
+        return resp
+    }catch (err) {
+        console.log(err)
+    }
+}
+
 window.addEventListener('DOMContentLoaded', async (event) => {
     let artefacts = await getArtefacts()
     artefacts && artefacts.length > 0 
@@ -46,7 +82,28 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         </div>
         `
     })
-    if (response.status === 401) {
-        window.location.href = '/login'
-    }
+    // if (response.status === 401) {
+    //     window.location.href = '/login'
+    // }
+})
+
+const downloadCsv = document.getElementById('downloadCsv')
+downloadCsv.addEventListener('click',async () => {
+    const csv= await getArtefactsCsv()
+    var hiddenElement = document.createElement('a')
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv)
+    hiddenElement.target = '_blank'
+    hiddenElement.download = 'artefacts.csv'
+    hiddenElement.click()
+
+})
+
+const downloadPdf = document.getElementById('downloadPdf')
+downloadPdf.addEventListener('click', async () => {
+    let pdf = await getArtefactsPdf()
+    let hiddenElement = document.createElement('a')
+    hiddenElement.href = pdf
+    hiddenElement.target = '_blank'
+    hiddenElement.download = 'artefacts.pdf'
+    hiddenElement.click()
 })

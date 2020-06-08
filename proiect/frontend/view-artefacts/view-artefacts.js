@@ -17,30 +17,10 @@ const getArtefactById = async(locationId) => {
     }
 }
 
-const getArtefacts = async() => {
-    try {
-        const response = await fetch(`http://localhost:8081/api/artefacts/export`, {
-            method: 'get',
-            headers: {
-                'Accept': 'application/json',
-                'auth-token': `${localStorage.getItem('auth-token')}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        const resp = await response.csv()
-        return resp
-    }catch (err) {
-        console.log(err)
-    }
-}
 
 window.addEventListener('DOMContentLoaded', async (event) => {
-    const verif = getArtefacts()
-    console.log(verif)
     const locationArray = location.pathname.split('/')
-    console.log(locationArray)
     const artefactInfos = await getArtefactById(locationArray[2])
-    console.log(artefactInfos)
     if (artefactInfos.status === 401) {
         window.location.href = '/login'
     } else {
@@ -96,6 +76,8 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                
     </div>
     <a href="/edit-artefact/${artefactInfos._id}" class="btn" id="submit-button">Editare artefact</a>
-        `
+      
+    `
     }
 })
+
