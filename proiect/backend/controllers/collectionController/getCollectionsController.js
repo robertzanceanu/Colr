@@ -3,8 +3,8 @@ const CollectionTypes = require('../../model/collectionTypesModel')
 
 const getCollectionType = async (collection) => {
 
-    return new Promise (async (resolve) => {
-        const collectionType =  await CollectionTypes.find({
+    return new Promise(async (resolve) => {
+        const collectionType = await CollectionTypes.find({
             _id: collection.collectionTypeId
         })
         resolve(collectionType[0])
@@ -12,24 +12,27 @@ const getCollectionType = async (collection) => {
 }
 
 module.exports = async (request, response, userId, queryParams) => {
-    let collections = []
-    if(queryParams) {
-        if(queryParams.getAll === 'true') {
-            collections = await Collections.find({})
-        }
-    } else {
-        collections = await Collections.find({userId:userId})
+    let collectionFilters = {
+        userId
     }
-    
+
+    if (queryParams) {
+        if (queryParams.getAll === 'true') {
+            collectionFilters = {}
+        }
+    }
+    collections = await Collections.find(collectionFilters)
+    console.log('gagwgwgwgwgwgw', collections)
+
     let collectionsToSend = []
     await Promise.all(collections.map(async (collection) => {
-        collectionType = await getCollectionType(collection)    
+        collectionType = await getCollectionType(collection)
         collectionsToSend.push({
-            _id:collection._id,
-            collectionTypeId:collection.collectionTypeId,
-            description:collection.description,
-            name:collection.name,
-            startingYear:collection.startingYear,
+            _id: collection._id,
+            collectionTypeId: collection.collectionTypeId,
+            description: collection.description,
+            name: collection.name,
+            startingYear: collection.startingYear,
             collectionType
         })
     }))
