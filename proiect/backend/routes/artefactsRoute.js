@@ -4,6 +4,8 @@ const getArtefactById = require('../controllers/artefactsController/getArtefactB
 const updateArtefactController = require('../controllers/artefactsController/updateArtefactController')
 const getArtefactControllerExport = require('../controllers/artefactsController/getArtefactControllerExport')
 const exportPdfController = require('../controllers/artefactsController/artefactExportPdfController')
+const likeArtefactController = require('../controllers/artefactsController/likeArtefactController')
+
 const queryString = require('query-string')
 
 const multiparty = require('multiparty');
@@ -46,13 +48,15 @@ module.exports = async (request, response, routes, userId) => {
         if (routes[2] === 'add') {
             addArtefactsController(request, response, body)
         }
-
+        if (routes[2] === 'like') {
+            likeArtefactController(request, response, userId, routes[3])
+        }
     }
     if (request.method === 'GET') {
         if (routes[2].split('?')[0] === 'get-artefacts') {
             const routeFilters = routes[2].split('?')[1]
             const queryParams = queryString.parse(routeFilters)
-            getArtefactController(request, response, userId,queryParams)
+            getArtefactController(request, response, userId, queryParams)
         }
         if (routes[2] === 'view-artefacts') {
             getArtefactById(request, response, userId, routes[3])
@@ -60,9 +64,10 @@ module.exports = async (request, response, routes, userId) => {
         if (routes[2] === 'export-csv') {
             getArtefactControllerExport(request, response, userId)
         }
-        if(routes[2] === 'export-pdf') {
+        if (routes[2] === 'export-pdf') {
             exportPdfController(request, response, userId)
         }
+
     }
     if (request.method == 'PUT') {
         if (routes[2] === 'update-artefact') {
