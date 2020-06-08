@@ -19,35 +19,35 @@ module.exports = async (request, response, urlArray) => {
         'Access-Control-Max-Age': 2592000, // 30 days
         /** add other headers as per requirement */
     };
-
+    let mainRoute = urlArray[1].split('?')[0]
     if (request.method === 'OPTIONS') {
         response.writeHead(204, headers);
         response.end();
         return;
     } else {
-        if (urlArray[1] === 'signup') {
+        if (mainRoute === 'signup') {
             signupRoute(request, response, urlArray)
-        } else if (urlArray[1] === 'login') {
+        } else if (mainRoute === 'login') {
             loginRoute(request, response, urlArray)
         } else {
             const verified = verifyAuthToken(request, response)
             if (verified) {
-                if (urlArray[1] === 'collection') {
+                if (mainRoute === 'collection') {
                     collectionRoute(request, response, urlArray, verified._id);
                 }
-                if (urlArray[1] === 'collectionTypes') {
+                if (mainRoute === 'collectionTypes') {
                     collectionTypesRoute(request, response, urlArray)
                 }
-                if (urlArray[1] === 'artefacts') {
+                if (mainRoute === 'artefacts') {
                     artefactsRoute(request, response, urlArray,verified._id);
                 }
-                if (urlArray[1] === 'rarity') {
+                if (mainRoute === 'rarity') {
                     artefactRarity(request, response, urlArray)
                 }
-                if (urlArray[1] === 'condition') {
+                if (mainRoute === 'condition') {
                     artefactCondition(request, response, urlArray)
                 }
-                if (urlArray[1] === 'users') {
+                if (mainRoute === 'users') {
                     userRoute(request, response, urlArray, verified._id)
                 }
             }

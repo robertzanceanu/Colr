@@ -4,6 +4,7 @@ const getArtefactById = require('../controllers/artefactsController/getArtefactB
 const updateArtefactController = require('../controllers/artefactsController/updateArtefactController')
 const getArtefactControllerExport = require('../controllers/artefactsController/getArtefactControllerExport')
 const exportPdfController = require('../controllers/artefactsController/artefactExportPdfController')
+const queryString = require('query-string')
 
 const multiparty = require('multiparty');
 const fs = require('fs')
@@ -48,9 +49,10 @@ module.exports = async (request, response, routes, userId) => {
 
     }
     if (request.method === 'GET') {
-        console.log(routes)
-        if (routes[2] === 'get-artefacts') {
-            getArtefactController(request, response, userId)
+        if (routes[2].split('?')[0] === 'get-artefacts') {
+            const routeFilters = routes[2].split('?')[1]
+            const queryParams = queryString.parse(routeFilters)
+            getArtefactController(request, response, userId,queryParams)
         }
         if (routes[2] === 'view-artefacts') {
             getArtefactById(request, response, userId, routes[3])

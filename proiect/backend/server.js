@@ -45,6 +45,7 @@ http.createServer(function (request, response) {
     createCollections()
     createRarity()
     createCondition()
+
     if (requestPages[0] === 'api') {
         router(request, response, requestPages)
     }
