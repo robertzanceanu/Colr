@@ -27,7 +27,7 @@ module.exports = async (request, response, routes, userId) => {
             await request.on('data', async data => {
                 body = JSON.parse(data)
             })
-            updateArtefactController(request, response, routes[3], body)
+            updateColection(request, response, routes[3], body)
         }
     }
 }
