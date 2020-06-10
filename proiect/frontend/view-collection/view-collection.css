@@ -152,7 +152,7 @@ footer.container {
       .page-content-photos{
         height: 350px;
         width: 240px;
-        margin-left: 0;
+        margin-left: 30px;
       }
       .page__content__text h1{
           font-size: 40px;

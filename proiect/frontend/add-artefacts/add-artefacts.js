@@ -1,4 +1,5 @@
 const submitButton = document.getElementById('submit-button')
+const sendCsv = document.getElementById('send-csv')
 
 const onSubmit = async (values) => {
     try {
@@ -13,6 +14,23 @@ const onSubmit = async (values) => {
         const json = await response.json()
         return json
 
+    } catch (err) {
+        console.log(err)
+    }
+}
+const onSubmitCsv = async values => {
+    try {
+        const response = await fetch(`http://localhost:8081/api/artefacts/import-csv`, {
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'auth-token': `${localStorage.getItem('auth-token')}`,
+                // 'Content-Type': 'multipart/form-data; charset=utf-8'
+            },
+            body: values
+        })
+        const json = await response.json()
+        return json
     } catch (err) {
         console.log(err)
     }
@@ -108,6 +126,15 @@ submitButton.addEventListener('click', async () => {
     //     window.location.href = '/artefacts'
     // }
 })
+
+sendCsv.addEventListener('click', async () => {
+    let csvFile = document.getElementById('import-csv').files
+    csvFile = Array.from(csvFile)
+    const data = new FormData()
+    data.append('csvFile',csvFile[0])
+    await onSubmitCsv(data)
+})
+
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collection = await getCollection()
     let rarity = await getRarity()
