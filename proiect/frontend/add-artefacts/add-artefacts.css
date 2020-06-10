@@ -1,14 +1,19 @@
+.submit-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button {
     background-color: #1F4B59;
     color: white;
     padding: 3% 3%;
     border: none;
     cursor: pointer;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
+    width: 150px;
     border-radius: 25px;
+    margin-top: 20px;
 }  
 input[type=text], input[type=textarea], input[type=number] {
     width: 100%;
@@ -18,7 +23,7 @@ input[type=text], input[type=textarea], input[type=number] {
     box-sizing: border-box;
     font-size: 14px;
 }
-.formular {
+.formular-wrapper {
     height: fit-content;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -28,10 +33,45 @@ input[type=text], input[type=textarea], input[type=number] {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 30px 45px;
 }
-.form {
+.formular-wrapper form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1F4B59;
+
+}
+.import-wrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:20px 0;
+}
+.import-wrapper h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+.import-button-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+} 
+.import-wrapper p{
+    font-size: 14px;
+    color: #1F4B59;
+    margin-top: 10px;
+}
+.import-button-wrapper input[type=file] {
+    width: fit-content;
+}
+.page-wrapper-form {
     display: flex;
     justify-content: center;
     padding: 25px 0;
@@ -95,7 +135,7 @@ footer{
         padding-right: 10px;
     }
 @media screen and (max-width: 850px) {
-    .formular {
+    .formular-wrapper {
         margin-top: 15%;
         margin-bottom: 60px;
         width: 90%;
