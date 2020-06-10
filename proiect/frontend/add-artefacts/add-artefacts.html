@@ -61,92 +61,97 @@
                 </div>
                 <h1 class="page-details-mobile-current-page">Adaugare Artefact</h1>
             </div>
-            <div class="form" id="form">
+            <div class="page-wrapper-form" id="form">
+                <div class="formular-wrapper" id="formular" >
+                    <form accept-charset="UTF-8" method="post">
+                        <br>
 
-                <form class="formular" id="formular" accept-charset="UTF-8" method="post">
-
-                    <br>
-
-                    <h1>Formular</h1>
-
-                    <br>
-
-
-
-
-                    <div class="form-group">
-                        <p>Nume artefact</p>
-
-                        <input type="text" name="answear1" id="name" maxlength="255" placeholder="Raspuns">
-                    </div>
-                    <div class="form-group">
-                        <p>Colectia din care face parte</p>
-                        <select id="dropdownCollection">
-                        </select>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <p>An începere</p>
-
-                        <input type="date" name="answear2" id="year" maxlength="255" placeholder="Raspuns">
-                    </div>
-
-
-                    <div class="form-group">
-                        <p>Valoare (RON)</p>
-
-                        <input type="number" min="0" name="answear3" id="value" maxlength="255" placeholder="Raspuns">
-                    </div>
-                    <div class="form-group">
-                        <p>Raritate</p>
-                        <select id="dropdownRaritate">
-
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-                        <p>Condiție</p>
-
-                        <select id="dropdownCondiție">
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-                        <p>Descriere</p>
-                        <input type="text" name="answear6" id="description" maxlength="255" placeholder="Raspuns">
-                    </div>
-
-
-                    <div class="form-group">
-                        <p>Țară</p>
-                        <input type="text" name="answear7" id="country" maxlength="255" placeholder="Raspuns">
-                    </div>
-
-
-                    <div class="form-group">
-                        <p>Istoric</p>
-                        <input type="text" name="answear8" id="usageHistory" maxlength="255" placeholder="Raspuns">
-                    </div>
-                    <div class="form-group">
-                        <p>Adauga poza</p>
-
-                        <!-- <div class="imagine">
-                            <button type="button">Click Me!</button>
-                        </div> -->
-                        <input type='file' accept="image/*,.pdf" multiple name="photos" id="photos"/>
+                        <h1>Formular</h1>
+    
+                        <br>
+    
+                        <div class="form-group">
+                            <p>Nume artefact</p>
+    
+                            <input type="text" name="answear1" id="name" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Colectia din care face parte</p>
+                            <select id="dropdownCollection">
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <p>An începere</p>
+    
+                            <input type="date" name="answear2" id="year" maxlength="255" placeholder="Raspuns">
+                        </div>
+    
+                        <div class="form-group">
+                            <p>Valoare (RON)</p>
+    
+                            <input type="number" min="0" name="answear3" id="value" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Raritate</p>
+                            <select id="dropdownRaritate">
+    
+                            </select>
+    
+                        </div>
+    
+                        <div class="form-group">
+                            <p>Condiție</p>
+    
+                            <select id="dropdownCondiție">
+    
+                            </select>
+    
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <p>Descriere</p>
+                            <input type="text" name="answear6" id="description" maxlength="255" placeholder="Raspuns">
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <p>Țară</p>
+                            <input type="text" name="answear7" id="country" maxlength="255" placeholder="Raspuns">
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <p>Istoric</p>
+                            <input type="text" name="answear8" id="usageHistory" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Adauga poza</p>
+    
+                            <!-- <div class="imagine">
+                                <button type="button">Click Me!</button>
+                            </div> -->
+                            <input type='file' accept="image/*,.pdf" multiple name="photos" id="photos"/>
+                        </div>
+                        
+                        <div class="submit-button">
+                            <button type="button" id="submit-button">Trimite formularul</button>
+                        </div>
+    
+                    </form>
+                    <div class="import-wrapper">
+                        <h1>Sau importa un artefact</h1>
+                        <div class="import-button-wrapper">
+                            <input class="import-button" id="import-csv" type="file" accept=".csv"/>
+                        </div>
+                        <p>Poti importa un fisier de tip csv care are urmatorul format: nume artefact, nume colectie existenta, anul de incepere, valoarea, raritatea (rar, foarte rar, comun), conditia (uzat, stare buna, excelent), descriere, tara, istoric</p>
+                        <div class="submit-button">
+                            <button type="button" id="send-csv">Trimite csv-ul</button>
+                        </div>
                     </div>
                     
-                    <div class="submit-button">
-                        <button type="button" id="submit-button">Trimite formularul</button>
-                    </div>
-
-                </form>
+                </div>
             </div>
             <footer class="container">
         <div class="copyright">
