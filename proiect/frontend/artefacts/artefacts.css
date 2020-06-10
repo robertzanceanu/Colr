@@ -36,9 +36,6 @@
     font-size: 18px;
     color: #1F4B59;
     margin-bottom: 10px;
-    white-space:wrap;
-    /* overflow: hidden; */
-    /* text-overflow: ellipsis; */
     width: fit-content;
     padding:5px;
 }
