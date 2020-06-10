@@ -122,9 +122,9 @@ submitButton.addEventListener('click', async () => {
         }
     }
     let response = await onSubmit(data)
-    // if (!response.error) {
-    //     window.location.href = '/artefacts'
-    // }
+     if (!response.error) {
+        window.location.href = '/artefacts'
+    }
 })
 
 sendCsv.addEventListener('click', async () => {
@@ -133,6 +133,13 @@ sendCsv.addEventListener('click', async () => {
     const data = new FormData()
     data.append('csvFile',csvFile[0])
     await onSubmitCsv(data)
+    if(response)
+    {
+        if(response.ok)
+        {
+            window.location.href ='/artefacts'
+        }
+    }
 })
 
 window.addEventListener('DOMContentLoaded', async (event) => {

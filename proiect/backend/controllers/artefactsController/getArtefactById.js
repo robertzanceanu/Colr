@@ -33,18 +33,9 @@ module.exports = async (reqeust, response, userId, artefactId) => {
     const condition = await getArtefactCondition(artefact)
     const numberOfLikes = await Like.find({ artefactId: artefactId })
     let photos = []
-    let mostExpensiveArtefact = {}
-    let biggestValue = 0
-    collectionsArtefacts.forEach((artefact) => {
-        if (Number(artefact.value) > biggestValue) {
-            biggestValue = Number(artefact.value)
-            mostExpensiveArtefact = artefact
-        }
         if (artefact.photos && artefact.photos.length > 0) {
             photos = [...photos, ...artefact.photos]
-
         }
-    })
     const photosToSend = []
     photos && photos.length > 0 && photos.map(async (photo) => {
         let image = fs.readFileSync(path.resolve(path.dirname(__filename), `../../${photo.logoPath}`))
