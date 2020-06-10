@@ -12,6 +12,7 @@ const onSubmit = async (values) => {
         })
         const json = await response.json()
         return json
+
     } catch (err) {
         console.log(err)
     }
@@ -50,15 +51,7 @@ addButton.addEventListener('click', async () => {
         userId: localStorage.getItem('id')
     }
     let response = await onSubmit(formValues)
-    // console.log(response.ok)
-    // if(response)
-    // {
-    //     if(response.ok)
-    //     {
-    //         console.log('aaaa')
-    //         window.location.href ='/collections'
-    //     }
-    // }
+    window.location.href ='/collections'
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collectionTypes = await getCollectionTypes()
@@ -70,5 +63,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             opt.innerHTML = type.name;
             selectElement.appendChild(opt);
     }) 
+
     
 })
