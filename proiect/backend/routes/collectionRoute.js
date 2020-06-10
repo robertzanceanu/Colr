@@ -21,8 +21,8 @@ module.exports = async (request, response, routes, userId) => {
             getCollectionById(request, response, userId, routes[2])
         }
     }
-    if (request.method === 'put') {
-        if (routes[2] === 'edit-colection') {
+    if (request.method === 'PUT') {
+         if (routes[2] === 'edit-colection') {
             let body = {}
             await request.on('data', async data => {
                 body = JSON.parse(data)

@@ -1,6 +1,6 @@
 const Collection = require('../../model/collectionsModel')
 
-module.exports = async (request, response, userId, body) => {
+module.exports = async (request, response, collectionId, body) => {
     const collection = await Collection.updateOne({_id: collectionId}, body)
     if (collection.ok) {
         response.writeHead(200, {"Content-Type": "application/json"})

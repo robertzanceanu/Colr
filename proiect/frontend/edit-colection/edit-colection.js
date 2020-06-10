@@ -19,8 +19,8 @@ const getCollectionTypes = async () => {
 
 const updateColection = async (data,locationId) => {
     try {
-        const response = await fetch(`http://localhost:8081/api/collections/edit-colection/${locationId}`, {
-            method: 'put',
+        const response = await fetch(`http://localhost:8081/api/collection/edit-colection/${locationId}`, {
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'auth-token': `${localStorage.getItem('auth-token')}`,
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     const colectionDetail = await getCollectionById(locationArray[2])
     let colectionType = await getCollectionTypes()
     let selectElement = document.getElementById('dropdown')
-    conditionType.map((type,index) =>{
+    colectionType.map((type,index) =>{
 
             var opt = document.createElement('option');
             opt.value = type._id;
