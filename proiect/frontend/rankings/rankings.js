@@ -19,7 +19,7 @@ const getArtefacts = async () => {
 }
 const getUsersDetails = async () => {
   try {
-      const response = await fetch(`http://localhost:8081/api/users/user-detail`, {
+      const response = await fetch(`http://localhost:8081/api/users/all-users`, {
           method: 'get',
           headers: {
               'Accept': 'application/json',

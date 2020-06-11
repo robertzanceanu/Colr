@@ -41,12 +41,28 @@ const getUserDetails = async () => {
         console.log(err)
     }
 }
-
+const adminRoutes = [
+    'all-users',
+    'edit-user',
+    'admin-collections'
+]
 window.addEventListener('DOMContentLoaded', async (event) => {
     const userInfos = await getUserDetails()
+    const currentPage = location.pathname.split('/')[1]
+    const inAdminRoutes = adminRoutes.find(route => route === currentPage)
+    if(userInfos.role === 'admin') {
+        if(!inAdminRoutes) {
+            window.location.href = '/all-users'
+        }
+    } else {
+        if(inAdminRoutes) {
+            window.location.href = '/collections'
+        }
+    }
+    console.log('12345', location, userInfos, currentPage)
     let userNameArray = Array.from(userName)
     userNameArray && userNameArray.length > 0 &&
-    userNameArray.map((element) => 
-        element.innerHTML = `${userInfos.lastName} ${userInfos.firstName}`
-    )
+        userNameArray.map((element) =>
+            element.innerHTML = `${userInfos.lastName} ${userInfos.firstName}`
+        )
 })

@@ -1,3 +1,10 @@
+.table-wrapper {
+	width: 100%; 
+	padding: 25px 40px;
+	box-sizing: border-box;
+
+}
+
 table { 
 	width: 100%; 
 	border-collapse: collapse; 
@@ -55,6 +62,9 @@ only screen and (max-width: 760px),
 		border-bottom: 1px solid #FFEECC; 
 		position: relative;
 		padding-left: 50%; 
+		width: 130px;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	td:before { 

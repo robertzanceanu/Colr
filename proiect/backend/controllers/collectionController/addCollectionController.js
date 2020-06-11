@@ -22,6 +22,7 @@ module.exports = async (request,response,body, userId) =>{
         return
     }
     try {
+        // console.log('abcdefgh', newCollection, await Collection.find({}))
         const saveCollection = await newCollection.save()
         response.writeHead(200, {"Content-Type":"application/json"})
         response.write(JSON.stringify(saveCollection))

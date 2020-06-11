@@ -2,6 +2,8 @@ const addCollectionController = require('../controllers/collectionController/add
 const getCollectionsController = require('../controllers/collectionController/getCollectionsController')
 const getCollectionById = require('../controllers/collectionController/getCollectionById')
 const updateColection = require('../controllers/collectionController/updateColectionController')
+const deleteCollection = require('../controllers/collectionController/deleteCollectionController')
+
 const queryString = require('query-string')
 
 module.exports = async (request, response, routes, userId) => {
@@ -28,6 +30,11 @@ module.exports = async (request, response, routes, userId) => {
                 body = JSON.parse(data)
             })
             updateColection(request, response, routes[3], body)
+        }
+    }
+    if(request.method === 'DELETE') {
+        if(routes[2]) {
+            deleteCollection(request,response, userId, routes[2])
         }
     }
 }
