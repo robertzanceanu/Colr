@@ -19,7 +19,6 @@ const getAllUsers = async () => {
 
 window.addEventListener('DOMContentLoaded', async (event) => {
     const users = await getAllUsers()
-    console.log('agwg', users)
     users && users.length > 0 && users.forEach((user) => {
         tableBody.innerHTML = `
             ${tableBody.innerHTML}
