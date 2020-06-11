@@ -13,6 +13,7 @@ const multiparty = require('multiparty');
 const fs = require('fs')
 const path = require('path')
 const csv = require('csv-parser')
+'use strict';
 
 const getFormData = (request) => {
     let form = new multiparty.Form();
@@ -63,25 +64,29 @@ const readCsv = async (filePath) => {
     return infos
 }
 const getData = async (request) => {
-    const form = new formidable({ multiples: true })
-    let artefactInfos = {}
-    await request.on('data', async data => {
-        const lines = data.toString().split('\r\n')
-        const csvText = lines[4].split(',')
-        artefactInfos = {
-            name: csvText[0].replace(/^\s+/g, ''),
-            collectionName: csvText[1].replace(/^\s+/g, ''),
-            year: csvText[2].replace(/^\s+/g, ''),
-            value: csvText[3].replace(/^\s+/g, ''),
-            rarity: csvText[4].replace(/^\s+/g, ''),
-            condition: csvText[5].replace(/^\s+/g, ''),
-            description: csvText[6].replace(/^\s+/g, ''),
-            country: csvText[7].replace(/^\s+/g, ''),
-            history: csvText[8].replace(/^\s+/g, '')
-        }
-    })
+    let promise = new Promise(async (resolve,reject) => {
+        let infos = {}
+        request.on('data', async data => {
+            const lines = data.toString().split('\r\n')
+            const csvText = lines[4].split(',')
+            infos = {
+                name: csvText[0].replace(/^\s+/g, ''),
+                collectionName: csvText[1].replace(/^\s+/g, ''),
+                year: csvText[2].replace(/^\s+/g, ''),
+                value: csvText[3].replace(/^\s+/g, ''),
+                rarity: csvText[4].replace(/^\s+/g, ''),
+                condition: csvText[5].replace(/^\s+/g, ''),
+                description: csvText[6].replace(/^\s+/g, ''),
+                country: csvText[7].replace(/^\s+/g, ''),
+                history: csvText[8].replace(/^\s+/g, '')
+            }
+        }).on('end', () => {
+            resolve(infos)
+        })
 
-    return artefactInfos
+    })
+    let result = await promise
+    return result
 }
 module.exports = async (request, response, routes, userId) => {
     if (request.method === 'POST') {
@@ -89,14 +94,12 @@ module.exports = async (request, response, routes, userId) => {
         if (routes[2] === 'add') {
             body = await getFormData(request)
             addArtefactsController(request, response, body)
-        }
-        if (routes[2] === 'like') {
+        } else if (routes[2] === 'like') {
             body = await getFormData(request)
             likeArtefactController(request, response, userId, routes[3])
-        }
-        if (routes[2] === 'import-csv') {
+        } else if (routes[2] === 'import-csv') {
             body = await getData(request)
-            importCsvArtefactController(request, response, body, userId)
+            await importCsvArtefactController(request, response, body, userId)
         }
     }
     if (request.method === 'GET') {
@@ -125,7 +128,7 @@ module.exports = async (request, response, routes, userId) => {
             updateArtefactController(request, response, routes[3], body)
         }
     }
-    if(request.method === 'DELETE') {
-        deleteArtefactController(request,response,userId,routes[2])
+    if (request.method === 'DELETE') {
+        deleteArtefactController(request, response, userId, routes[2])
     }
 }
