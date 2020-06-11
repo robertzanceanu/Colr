@@ -51,6 +51,7 @@ addButton.addEventListener('click', async () => {
         userId: localStorage.getItem('id')
     }
     let response = await onSubmit(formValues)
+    window.location.href ='/collections'
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collectionTypes = await getCollectionTypes()
@@ -62,5 +63,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             opt.innerHTML = type.name;
             selectElement.appendChild(opt);
     }) 
+
     
 })
