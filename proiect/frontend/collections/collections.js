@@ -109,7 +109,7 @@ selectCollection.addEventListener('change', async (event, value) => {
 resetFiltersButton.addEventListener('click', async () => {
     filtersObject = {}
     generateFilterString()
-    const newArtefacts = await getArtefacts()
-    artefactsPage.innerHTML = ``
-    renderArtefactsContent(newArtefacts)
+    const newCollections = await getCollections()
+    collectionsPage.innerHTML = ``
+    renderCollections(newCollections)
 })
