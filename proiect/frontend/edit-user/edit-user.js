@@ -49,17 +49,43 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 })
 
 submitButton.addEventListener('click', async () => {
-    const data = {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        password:password.value
+    let valid = true
+
+    const fieldErrorEmail = document.getElementById('field-error-email')
+    const fieldErrorlastName = document.getElementById('field-error-lastName')
+    const fieldErrorFirstName = document.getElementById('field-error-firstName')
+    if (email.value === '') {
+        valid = false
+        fieldErrorEmail.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorEmail.innerHTML = ''
     }
-    const response = await updateUser(location.pathname.split('/')[2], data)
-    if(response) {
-        if(response.ok) {
-            window.location.href = '/all-users'
+    if (lastName.value === '') {
+        valid = false
+        fieldErrorlastName.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorlastName.innerHTML = ''
+    }
+    if (firstName.value === '') {
+        valid = false
+        fieldErrorFirstName.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorFirstName.innerHTML = ''
+    }
+    if (valid) {
+        const data = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value,
+            password: password.value
         }
+        const response = await updateUser(location.pathname.split('/')[2], data)
+        if (response) {
+            if (response.ok) {
+                window.location.href = '/all-users'
+            }
+        }
+
     }
 
 })
@@ -84,8 +110,8 @@ const onDeleteUser = async userId => {
 const deleteUser = document.getElementById('delete-user')
 deleteUser.addEventListener('click', async () => {
     const response = await onDeleteUser(location.pathname.split('/')[2])
-    if(response) {
-        if(response.ok) {
+    if (response) {
+        if (response.ok) {
             window.location.href = '/all-users'
         }
     }

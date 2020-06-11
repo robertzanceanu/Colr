@@ -60,7 +60,6 @@ const readCsv = async (filePath) => {
     }
     //         return artefactInfos
     //     })
-    console.log(infos)
     return infos
 }
 const getData = async (request) => {

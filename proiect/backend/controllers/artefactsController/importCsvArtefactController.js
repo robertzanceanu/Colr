@@ -8,7 +8,6 @@ module.exports = async (request, response, body, userId) => {
     let collection = await Collection.findOne({ name: body.collectionName, userId })
     let rarity = await ArtefactRarity.findOne({ name: body.rarity })
     let condition = await ArtefactCondition.findOne({ name: body.condition })
-    console.log('abvd', collection, body)
     if (!collection) {
         response.writeHead(400, { "Content-Type": "application/json" })
         response.write(JSON.stringify({
