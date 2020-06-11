@@ -1,0 +1,13 @@
+.delete-button {
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background: #990000;
+}

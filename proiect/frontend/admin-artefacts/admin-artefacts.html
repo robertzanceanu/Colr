@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../globals/global.css">
-    <link rel="stylesheet" type="text/css" href="./all-users.css">
+    <link rel="stylesheet" type="text/css" href="../all-users/all-users.css">
     <title>Utilizatori</title>
 </head>
 
@@ -18,14 +18,14 @@
                 <h1 class="navigation-logo">Colr</h1>
             </div>
             <div class="navigation-pages">
-                <div class="navigation-page-wrapper navigation-page-wrapper-selected">
-                    <a class="navigation-page navigation-page-selected" href="/all-users">Utilizatori</a>
+                <div class="navigation-page-wrapper ">
+                    <a class="navigation-page " href="/all-users">Utilizatori</a>
                 </div>
                 <div class="navigation-page-wrapper">
                     <a class="navigation-page" href="/admin-collections">Colectii</a>
                 </div>
-                <div class="navigation-page-wrapper">
-                    <a class="navigation-page" href="/admin-artefacts">Artefacte</a>
+                <div class="navigation-page-wrapper navigation-page-wrapper-selected">
+                    <a class="navigation-page navigation-page-selected" href="/admin-artefacts">Artefacte</a>
                 </div>
                 <div class="navigation-user">
                     <div class="page-user">
@@ -50,17 +50,16 @@
                     <div class="page-details-mobile-burger-line"></div>
                     <div class="page-details-mobile-burger-line"></div>
                 </div>
-                <h1 class="page-details-mobile-current-page">Utilizatori</h1>
+                <h1 class="page-details-mobile-current-page">Artefacte</h1>
             </div>
             <div class="table-wrapper">
                 <table>
                     <thead>
                       <tr>
-                        <th>Nume</th>
-                        <th>Prenume</th>
-                        <th>Email</th>
-                        <th>Rol</th>
-                        <th>Vezi detalii</th>
+                        <th>Nume artefact</th>
+                        <th>Nume colectie</th>
+                        <th>User email</th>
+                        <th>Sterge</th>
                       </tr>
                     </thead>
                     <tbody id="table-body">
@@ -88,7 +87,7 @@
          
     </div>
     <script src="../globals/globals.js"></script>
-    <script src="all-users.js"></script>
+    <script src="admin-artefacts.js"></script>
 </body>
 
 </html>

@@ -6,8 +6,9 @@ module.exports = async (request, response, userId) => {
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
+        role: user.role
     }
     response.writeHead(200, { "Content-Type": "application/json" })
     response.write(JSON.stringify(infosToSend))
     response.end()
-} 
+}

@@ -1,3 +1,11 @@
+.table-wrapper {
+	width: 100%; 
+	padding: 25px 40px;
+	box-sizing: border-box;
+	height: 100vh;
+	overflow-y: auto;
+}
+
 table { 
 	width: 100%; 
 	border-collapse: collapse; 
@@ -53,6 +61,9 @@ footer{
 		border-bottom: 1px solid #FFEECC; 
 		position: relative;
 		padding-left: 50%; 
+		width: 130px;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	td:before { 

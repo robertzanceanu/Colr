@@ -4,7 +4,6 @@ module.exports = async(request, response, userId) => {
     var dict_artefact = {}
     var dict_user ={}
     likes = await Likes.find({})
-    // console.log(likes)
     for (var key in likes)
     {
         dict_artefact[likes[key].artefactId]=0

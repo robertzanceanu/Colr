@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../globals/global.css">
-    <link rel="stylesheet" type="text/css" href="./all-users.css">
+    <link rel="stylesheet" type="text/css" href="./edit-user.css">
+    <link rel="stylesheet" type="text/css" href="../myAccount/myAccount.css">
     <title>Utilizatori</title>
 </head>
 
@@ -20,12 +21,6 @@
             <div class="navigation-pages">
                 <div class="navigation-page-wrapper navigation-page-wrapper-selected">
                     <a class="navigation-page navigation-page-selected" href="/all-users">Utilizatori</a>
-                </div>
-                <div class="navigation-page-wrapper">
-                    <a class="navigation-page" href="/admin-collections">Colectii</a>
-                </div>
-                <div class="navigation-page-wrapper">
-                    <a class="navigation-page" href="/admin-artefacts">Artefacte</a>
                 </div>
                 <div class="navigation-user">
                     <div class="page-user">
@@ -50,22 +45,38 @@
                     <div class="page-details-mobile-burger-line"></div>
                     <div class="page-details-mobile-burger-line"></div>
                 </div>
-                <h1 class="page-details-mobile-current-page">Utilizatori</h1>
+                <h1 class="page-details-mobile-current-page">Adaugare Artefact</h1>
             </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Nume</th>
-                        <th>Prenume</th>
-                        <th>Email</th>
-                        <th>Rol</th>
-                        <th>Vezi detalii</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table-body">
-                    </tbody>
-                  </table>
+            <div class="accoint-form-wrapper">
+                <div class="account-form ">
+                    <form class="form">
+                        <div class="form-name">
+                            <h1>Editeaza utilizator</h1>
+                        </div>
+                        <div class="form-group">
+                            <p>Email:</p>
+
+                            <input type="text" name="answear1" id="email" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Nume:</p>
+
+                            <input type="text" name="answear1" id="lastName" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Prenume:</p>
+
+                            <input type="text" name="answear1" id="firstName" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <div class="form-group">
+                            <p>Parola noua:</p>
+
+                            <input type="text" name="answear1" id="password" maxlength="255" placeholder="Raspuns">
+                        </div>
+                        <button type="button" id="submit-button" class="submit-button">Trimite formularul</button>
+                    </form>
+                    <button class="delete-button" id="delete-user" type="button">Sterge utilizatorul</button>
+                </div>
             </div>
             <footer class="container">
         <div class="copyright">
@@ -88,7 +99,7 @@
          
     </div>
     <script src="../globals/globals.js"></script>
-    <script src="all-users.js"></script>
+    <script src="edit-user.js"></script>
 </body>
 
 </html>
