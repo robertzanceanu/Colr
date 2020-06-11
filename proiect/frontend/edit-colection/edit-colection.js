@@ -17,7 +17,7 @@ const getCollectionTypes = async () => {
     }
 }
 
-const updateColection = async (data,locationId) => {
+const updateColection = async (data, locationId) => {
     try {
         const response = await fetch(`http://localhost:8081/api/collection/edit-colection/${locationId}`, {
             method: 'PUT',
@@ -26,7 +26,7 @@ const updateColection = async (data,locationId) => {
                 'auth-token': `${localStorage.getItem('auth-token')}`,
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify(data)
+            body: JSON.stringify(data)
         })
         const json = await response.json()
         return json
@@ -57,13 +57,13 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     const colectionDetail = await getCollectionById(locationArray[2])
     let colectionType = await getCollectionTypes()
     let selectElement = document.getElementById('dropdown')
-    colectionType.map((type,index) =>{
+    colectionType.map((type, index) => {
 
-            var opt = document.createElement('option');
-            opt.value = type._id;
-            opt.innerHTML = type.name;
-            selectElement.appendChild(opt);
-    }) 
+        var opt = document.createElement('option');
+        opt.value = type._id;
+        opt.innerHTML = type.name;
+        selectElement.appendChild(opt);
+    })
     let name = document.getElementById('name')
     let description = document.getElementById('description')
     colectionType = document.getElementById('dropdown')
@@ -75,20 +75,45 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
 submitButton.addEventListener('click', async () => {
     const locationArray = location.pathname.split('/')
-    let name = document.getElementById('name')
-    let description = document.getElementById('description')
-    let colectionType = document.getElementById('dropdown')
-    const data ={
-        name:name.value,
-        description:description.value,
-        colectionType:colectionType.value
+    let name = document.getElementById('name').value
+    let description = document.getElementById('description').value
+    let colectionType = document.getElementById('dropdown').value
+    const fieldErrorName = document.getElementById('field-error-name')
+    
+    let valid = true
+    if (name === '') {
+        valid = false
+        fieldErrorName.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorName.innerHTML = ''
     }
-    const response = await updateColection(data,locationArray[2])
-    if(response)
-    {
-        if(response.ok)
-        {
-            window.location.href ='/collections'
+
+    const fieldErrorDescription = document.getElementById('field-error-description')
+    if (description === '') {
+        valid = false
+        fieldErrorDescription.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorDescription.innerHTML = ''
+    }
+    const fieldErrorCollection = document.getElementById('field-error-collectionType')
+    if (colectionType === '') {
+        valid = false
+        fieldErrorCollection.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorCollection.innerHTML = ''
+    }
+    if (valid) {
+        const data = {
+            name: name,
+            description: description,
+            colectionType: colectionType
+        }
+        const response = await updateColection(data, locationArray[2])
+        if (response) {
+            if (response.ok) {
+                window.location.href = '/collections'
+            }
         }
     }
+
 })

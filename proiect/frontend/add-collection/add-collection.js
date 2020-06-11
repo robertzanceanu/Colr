@@ -42,16 +42,48 @@ addButton.addEventListener('click', async () => {
     let data = document.getElementById('startingYear').value
     let collectionType = document.getElementById("dropdown").value
     
-
-    formValues = {
-        name,
-        description,
-        data,
-        collectionType,
-        userId: localStorage.getItem('id')
+    const fieldErrorName = document.getElementById('field-error-name')
+    let valid = true
+    if(name === '') {
+        valid=false
+        fieldErrorName.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorName.innerHTML = ''
     }
-    let response = await onSubmit(formValues)
-    window.location.href ='/collections'
+
+    const fieldErrorDescription = document.getElementById('field-error-description')
+    if(description === '') {
+        valid=false     
+        fieldErrorDescription.innerHTML = 'Obligatoriu'   
+    } else {
+        fieldErrorDescription.innerHTML = ''
+    }
+    const fieldErrorDate = document.getElementById('field-error-date')
+    if(data === '') {
+        valid = false
+        fieldErrorDate.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorDate.innerHTML = ''
+    }
+    const fieldErrorCollection= document.getElementById('field-error-collectionType')
+    if(collectionType === '') {
+        valid = false
+        fieldErrorCollection.innerHTML = 'Obligatoriu'
+    } else {
+        fieldErrorCollection.innerHTML = ''
+    }
+    if(valid) {
+        formValues = {
+            name,
+            description,
+            data,
+            collectionType,
+            userId: localStorage.getItem('id')
+        }
+        let response = await onSubmit(formValues)
+        window.location.href ='/collections'
+    }
+
 })
 window.addEventListener('DOMContentLoaded', async (event) => {
     let collectionTypes = await getCollectionTypes()
