@@ -4,16 +4,25 @@ const getUsersController = require('../controllers/userController/getUsersContro
 const getUserInfos = require('../controllers/userController/getUserInfosController')
 const updateUserController = require('../controllers/userController/updateUserController')
 const deleteUserController = require('../controllers/userController/deleteUserController')
+const clsamentContoller = require('../controllers/userController/getForClasamentController')
 
 module.exports = async (request, response, urlArray, userId) => {
     if (request.method === 'GET') {
         if (urlArray[2] === 'user-details') {
             getUserByIdController(request, response, userId)
         }
+        else if(urlArray[2] === 'user-details-clasament')
+            {
+                console.log('oaie grasa')
+                clsamentContoller(request, response, userId)
+            }
         else if (urlArray[2] === 'all-users') {
-            if(!urlArray[3]) {
-                getUsersController(request, response)
-            } else {
+            if(!urlArray[3]) 
+                {
+                    getUsersController(request, response)
+                }
+            
+            else{
                 getUserInfos(request,response, userId, urlArray[3])
             }
         }

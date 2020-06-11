@@ -95,9 +95,9 @@ input[type=password]  {
     .p{
         font-size: 60%;
     }
-    input[type=email] {
+    /* input[type=email] {
         margin-top: 10%;
-    }
+    } */
     .signup-form {
         margin-top: 45%;
         margin-left: 15%;
@@ -123,9 +123,9 @@ input[type=password]  {
     .p{
         font-size: 60%;
     }
-    input[type=email] {
+    /* input[type=email] {
         margin-top: 10%;
-    }
+    } */
     .signup-form {
         margin-top: 40%;
         margin-left: 15%;
@@ -151,9 +151,9 @@ input[type=password]  {
     .p{
         font-size: 60%;
     }
-    input[type=email] {
+    /* input[type=email] {
         margin-top: 10%;
-    }
+    } */
     .signup-form {
         margin-top: 25%;
         margin-left: 15%;
@@ -179,9 +179,9 @@ input[type=password]  {
     .p{
         font-size: 60%;
     }
-    input[type=email] {
+    /* input[type=email] {
         margin-top: 10%;
-    }
+    } */
     .signup-form {
         margin-top: 15%;
         margin-left: 15%;
@@ -207,11 +207,11 @@ input[type=password]  {
     .p{
         font-size: 60%;
     }
-    input[type=email] {
+    /* input[type=email] {
         margin-top: 10%;
-    }
+    } */
     .signup-form {
-        margin-top: 10%;
+        margin-top: 20px;
         margin-left: 15%;
         margin-right: 15%;
         height: fit-content;

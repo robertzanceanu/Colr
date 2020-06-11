@@ -19,7 +19,7 @@ const getArtefacts = async () => {
 }
 const getUsersDetails = async () => {
   try {
-      const response = await fetch(`http://localhost:8081/api/users/all-users`, {
+      const response = await fetch(`http://localhost:8081/api/users/user-details-clasament`, {
           method: 'get',
           headers: {
               'Accept': 'application/json',
@@ -73,25 +73,33 @@ function openRanking(evt, ranking) {
     openRankingfirst(event, 'Artefact')
     var rankings = await getClasamet()
     let artefacts = await getArtefacts()
-    let userDetails = await getUsersDetails()
+    let userDetail = await getUsersDetails()
+    // console.log(rankings)
     for( let elem in rankings.items)
     {
+      // console.log(rankings.items[elem][0])
+      // console.log(artefacts)
       let infoArtefact = artefacts.find(elemt => elemt._id === rankings.items[elem][0])
-      artefactTable.innerHTML = `
+      if(infoArtefact != null)
+      {artefactTable.innerHTML = `
         ${artefactTable.innerHTML}
         <tr class="table__row">
         <td class="table__content" data-heading="Artefact">${infoArtefact.name}</td>
         <td class="table__content" data-heading="Aprecieri">${rankings.items[elem][1]}</td>
         </tr>`
     }
+    }
+    console.log(rankings.itemsUser)
     for( let elem in rankings.itemsUser)
     {
-      let infouser = userDetails.find(elemt => elemt._id === rankings.itemsUser[elem][0])
-      userTable.innerHTML = `
+      
+      let infouser = userDetail.find(elemt => elemt._id === rankings.itemsUser[elem][0])
+      if(infouser != null)
+     { userTable.innerHTML = `
         ${userTable.innerHTML}
         <tr class="table__row">
         <td class="table__content" data-heading="Useri">${infouser.firstName} ${infouser.lastName}</td>
         <td class="table__content" data-heading="Likes">${rankings.items[elem][1]}</td>
-        </tr>`
+        </tr>`}
     }
   })

@@ -11,3 +11,11 @@
     color: white;
     background: #990000;
 }
+input{
+    width: 100%;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}

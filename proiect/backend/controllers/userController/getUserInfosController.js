@@ -8,6 +8,7 @@ module.exports = async (request, response, loggedInUserId, userId) => {
         response.write(JSON.stringify(userInfos))
         response.end()
     } else {
+        const userInfos = await Users.findOne({ _id: userId })
         response.writeHead(401, { "Content-Type": "application/json" })
         response.write(JSON.stringify({
             error: "Nu aveti dreptul de a efectua aceasta actiune"
