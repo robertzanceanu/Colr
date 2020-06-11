@@ -6,6 +6,7 @@ const getArtefactControllerExport = require('../controllers/artefactsController/
 const exportPdfController = require('../controllers/artefactsController/artefactExportPdfController')
 const likeArtefactController = require('../controllers/artefactsController/likeArtefactController')
 const importCsvArtefactController = require('../controllers/artefactsController/importCsvArtefactController')
+const deleteArtefactController = require('../controllers/artefactsController/deleteArtefactController')
 const formidable = require('formidable')
 const queryString = require('query-string')
 const multiparty = require('multiparty');
@@ -43,10 +44,7 @@ const getFormData = (request) => {
 }
 const readCsv = async (filePath) => {
     let infos = {}
-    console.log(filePath)
     const response = await fs.readFileSync(filePath, { encoding: "utf8" })
-    //    async (error, data) => {
-    //         console.log('c')
     const dataElements = response.split(',')
     infos = {
         name: dataElements[0],
@@ -126,5 +124,8 @@ module.exports = async (request, response, routes, userId) => {
             })
             updateArtefactController(request, response, routes[3], body)
         }
+    }
+    if(request.method === 'DELETE') {
+        deleteArtefactController(request,response,userId,routes[2])
     }
 }

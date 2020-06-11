@@ -74,13 +74,9 @@ function openRanking(evt, ranking) {
     var rankings = await getClasamet()
     let artefacts = await getArtefacts()
     let userDetails = await getUsersDetails()
-    // console.log(rankings)
     for( let elem in rankings.items)
     {
-      // console.log(rankings.items[elem][0])
-      // console.log(artefacts)
       let infoArtefact = artefacts.find(elemt => elemt._id === rankings.items[elem][0])
-      // console.log(infoArtefact)
       artefactTable.innerHTML = `
         ${artefactTable.innerHTML}
         <tr class="table__row">
@@ -88,11 +84,9 @@ function openRanking(evt, ranking) {
         <td class="table__content" data-heading="Aprecieri">${rankings.items[elem][1]}</td>
         </tr>`
     }
-    console.log(rankings.itemsUser)
     for( let elem in rankings.itemsUser)
     {
       let infouser = userDetails.find(elemt => elemt._id === rankings.itemsUser[elem][0])
-      console.log(infouser)
       userTable.innerHTML = `
         ${userTable.innerHTML}
         <tr class="table__row">

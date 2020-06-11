@@ -35,7 +35,8 @@ const routes = [
     'edit-colection',
     'all-users',
     'edit-user',
-    'admin-collections'
+    'admin-collections',
+    'admin-artefacts'
 ]
 http.createServer(function (request, response) {
     //aici o sa imi explic in cuvinte logica

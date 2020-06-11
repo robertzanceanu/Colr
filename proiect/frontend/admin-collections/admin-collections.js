@@ -18,7 +18,6 @@ const getCollections = async () => {
 }
 
 const deleteCollection = async (collectionId) => {
-    // console.log('ggwgww',collection)
     try {
         const response = await fetch(`http://localhost:8081/api/collection/${collectionId}`, {
             method: 'delete',
@@ -37,7 +36,6 @@ const deleteCollection = async (collectionId) => {
 let collections = []
 window.addEventListener('DOMContentLoaded', async (event) => {
     collections = await getCollections()
-    console.log('agwg', collections)
     collections && collections.length > 0 && collections.forEach((collection,index) => {
         tableBody.innerHTML = `
             ${tableBody.innerHTML}
@@ -53,10 +51,8 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     })
 })
 tableBody.addEventListener('click', async (e) => {
-    console.log(e.target.id.indexOf('delete-collection'))
     if(e.target.id.indexOf('delete-collection') !== -1) {
         const deleteIndex = e.target.id.split('-')[2]
-        console.log(collections[deleteIndex])
         const deleteMessage = await deleteCollection(collections[deleteIndex]._id)
         if(deleteMessage) {
             if(deleteMessage.ok) {

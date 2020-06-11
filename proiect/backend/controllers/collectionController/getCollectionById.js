@@ -50,7 +50,6 @@ module.exports = async (reqeust, response, userId, collectionId) => {
         artefacts: collectionsArtefacts,
         photos: photosToSend
     }
-    console.log(infosToSend)
     response.writeHead(200, { "Content-Type": "application/json" })
     response.write(JSON.stringify(infosToSend))
     response.end()

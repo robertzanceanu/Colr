@@ -2,6 +2,7 @@ const Artefacts = require('../../model/artefactsModel')
 const Collections = require('../../model/collectionsModel')
 const ArtefactRarity = require('../../model/rarityModel')
 const ArtefactCondition = require('../../model/conditionModel')
+const Users = require('../../model/usersModel')
 
 const getArtefactRarity = async (artefact) => {
 
@@ -48,6 +49,7 @@ module.exports = async (request, response, userId, queryParams) => {
         const collection = await getCollection(artefact)
         const rarity = await getArtefactRarity(artefact)
         const condition = await getArtefactCondition(artefact)
+        const user = await Users.findOne({_id:artefact.userId})
         artefactsToSend.push({
             _id: artefact._id,
             collection: collection,
@@ -60,7 +62,8 @@ module.exports = async (request, response, userId, queryParams) => {
             photos: artefact.photos,
             numberOfLikes: artefact.numberOfLikes,
             country: artefact.country,
-            usageHistory: artefact.usageHistory
+            usageHistory: artefact.usageHistory,
+            user
         })
     }))
     response.writeHead(200, { "Content-Type": "application/json" })

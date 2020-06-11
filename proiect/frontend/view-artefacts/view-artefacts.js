@@ -102,7 +102,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         if(!likeButton.classList.contains('liked')) {
             likeButton.classList.add('liked')
             const resp = await likeArtefact(locationArray[2])
-            console.log(resp)
             if(!resp.error) {
                 location.reload()
             }

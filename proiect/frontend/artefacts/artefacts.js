@@ -150,7 +150,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     let rarities = await getRarities()
     let conditions = await getConditions()
 
-    console.log(collections, rarities, conditions)
     collections.map((collection, index) => {
         let option = document.createElement('option')
         option.value = collection._id

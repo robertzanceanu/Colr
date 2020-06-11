@@ -10,6 +10,7 @@ const collectionTypesRoute = require('./collectionTypesRoute')
 const userRoute = require('./userRoute')
 const globalStatistics = require('./globalStatisticsRoute')
 const rankings = require('./rankingsRoute')
+const Collection = require('../model/collectionsModel')
 
 // routerul verifica ce pagina e in request si te trimite pe ruta ei.. la dashboard verific daca exista auth tokenul in headers deoarece 
 // acela este un call privat.. cel mai probabil asa va fi la toate paginile mai putin login/signup deoarece la toate trebuie sa fii logat
@@ -36,26 +37,26 @@ module.exports = async (request, response, urlArray) => {
             if (verified) {
                 if (mainRoute === 'collection') {
                     collectionRoute(request, response, urlArray, verified._id);
-                }
+                } else 
                 if (mainRoute === 'collectionTypes') {
                     collectionTypesRoute(request, response, urlArray)
                 }
-                if (mainRoute === 'artefacts') {
-                    artefactsRoute(request, response, urlArray,verified._id);
+                else if (mainRoute === 'artefacts') {
+                    artefactsRoute(request, response, urlArray, verified._id);
                 }
-                if (mainRoute === 'rarity') {
+                else if (mainRoute === 'rarity') {
                     artefactRarity(request, response, urlArray)
                 }
-                if (mainRoute === 'condition') {
+                else if (mainRoute === 'condition') {
                     artefactCondition(request, response, urlArray)
                 }
-                if (mainRoute === 'users') {
+                else if (mainRoute === 'users') {
                     userRoute(request, response, urlArray, verified._id)
                 }
-                if(urlArray[1]==='globalStatistics'){
+                else if (urlArray[1] === 'globalStatistics') {
                     globalStatistics(request, response, urlArray)
                 }
-                if(urlArray[1]==='rankings'){
+                else if (urlArray[1] === 'rankings') {
                     rankings(request, response, urlArray)
                 }
             }

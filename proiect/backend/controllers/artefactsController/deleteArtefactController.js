@@ -1,14 +1,11 @@
+const Artefacts = require('../../model/artefactsModel')
 const Users = require('../../model/usersModel')
-const bcrypt = require('bcryptjs')
 
-module.exports = async (request, response, userId, body, userToUpdateId) => {
+module.exports = async (request, response, userId, artefactId) => {
     const loggedInUser = await Users.findOne({ _id: userId })
     if (loggedInUser.role === 'admin') {
-        const salt = await bcrypt.genSalt(10)
-        const hashPassword = await bcrypt.hash(body.password, salt)
-        body.password = hashPassword
-        const updateUser = await Users.updateOne({ _id: userToUpdateId }, body)
-        if (updateUser.ok) {
+        const deleteArtefact = await Artefacts.deleteOne({ _id: artefactId })
+        if (deleteArtefact.ok === 1) {
             response.writeHead(200, { "Content-Type": "application/json" })
             response.write(JSON.stringify({
                 ok: true
@@ -17,11 +14,10 @@ module.exports = async (request, response, userId, body, userToUpdateId) => {
         } else {
             response.writeHead(400, { "Content-Type": "application/json" })
             response.write(JSON.stringify({
-                error: "Nu s-a putut efectua modificarea"
+                error: "Nu s-a putut sterge artefactul"
             }))
             response.end()
         }
-
     } else {
         response.writeHead(401, { "Content-Type": "application/json" })
         response.write(JSON.stringify({

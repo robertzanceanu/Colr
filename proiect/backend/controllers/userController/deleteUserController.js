@@ -3,7 +3,6 @@ const Collections = require('../../model/collectionsModel')
 const Artefacts = require('../../model/artefactsModel')
 
 module.exports = async (request, response, userId, userToDeleteId) => {
-    console.log('dadadada')
     const loggedInUser = await Users.findOne({ _id: userId })
     if (loggedInUser.role === 'admin') {
         const deleteArtefacts = await Artefacts.deleteMany({ userId: userToDeleteId })

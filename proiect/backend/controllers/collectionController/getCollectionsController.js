@@ -4,11 +4,13 @@ const Users = require('../../model/usersModel')
 
 const getCollectionType = async (collection) => {
 
-    return new Promise(async (resolve) => {
-        const collectionType = await CollectionTypes.find({
-            _id: collection.collectionTypeId
-        })
-        resolve(collectionType[0])
+    return new Promise(async (resolve, reject) => {
+        try {
+            const collectionType = await CollectionTypes.find({
+                _id: collection.collectionTypeId
+            })
+            resolve(collectionType[0])
+        } catch (err) { reject(err) }
     })
 }
 
@@ -37,7 +39,7 @@ module.exports = async (request, response, userId, queryParams) => {
 
     let collectionsToSend = []
     await Promise.all(collections.map(async (collection) => {
-        collectionType = await getCollectionType(collection)
+        const collectionType = await getCollectionType(collection)
         const user =  await getUser(collection)
         collectionsToSend.push({
             _id: collection._id,

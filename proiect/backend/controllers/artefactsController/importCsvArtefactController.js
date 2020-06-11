@@ -5,7 +5,6 @@ const Collection = require('../../model/collectionsModel')
 const Users = require('../../model/usersModel')
 
 module.exports = async (request, response, body, userId) => {
-    console.log('gagaga', body)
     let collection = await Collection.findOne({ name: body.collectionName, userId })
     let rarity = await ArtefactRarity.findOne({ name: body.rarity })
     let condition = await ArtefactCondition.findOne({ name: body.condition })
@@ -59,5 +58,4 @@ module.exports = async (request, response, body, userId) => {
         }))
         response.end()
     }
-    // console.log('ahgha',toAdd)
 }

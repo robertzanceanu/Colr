@@ -44,7 +44,8 @@ const getUserDetails = async () => {
 const adminRoutes = [
     'all-users',
     'edit-user',
-    'admin-collections'
+    'admin-collections',
+    'admin-artefacts'
 ]
 window.addEventListener('DOMContentLoaded', async (event) => {
     const userInfos = await getUserDetails()
@@ -59,7 +60,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             window.location.href = '/collections'
         }
     }
-    console.log('12345', location, userInfos, currentPage)
     let userNameArray = Array.from(userName)
     userNameArray && userNameArray.length > 0 &&
         userNameArray.map((element) =>
