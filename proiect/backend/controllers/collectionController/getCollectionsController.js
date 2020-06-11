@@ -29,10 +29,13 @@ module.exports = async (request, response, userId, queryParams) => {
     let collectionFilters = {
         userId
     }
-
+    console.log('abwwg',queryParams)
     if (queryParams) {
         if (queryParams.getAll === 'true') {
             collectionFilters = {}
+        }
+        if(queryParams.collectionTypeId) {
+            collectionFilters.collectionTypeId = queryParams.collectionTypeId
         }
     }
     collections = await Collections.find(collectionFilters)
