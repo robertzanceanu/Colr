@@ -42,4 +42,10 @@ footer {
   margin-bottom: 64px;
   background: #e2ffff;
 }
-
+a{
+  animation: none;
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}

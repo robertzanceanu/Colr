@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="ro-RO">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="Raport.css">
-    <title>Raport Colr</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="Raport.css">
+  <title>Raport Colr</title>
 </head>
+
 <body>
-<header>
+  <header>
     <h1>Raport Colr</h1>
-</header>
-<article id="what" typeof="schema:ScholarlyArticle" resource="#">
-  <div role="contentinfo">
-    <h2>Autori</h2>
+  </header>
+  <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+    <div role="contentinfo">
+      <h2>Autori</h2>
       <p>Zănceanu Robert & Căluțu Maria & Mariniuc Andrei</p>
-       </div>
-        <section id="descriere">
-        <h3>1. Descriere</h3>
-        <p>  In ziua de azi, tot mai multi oameni au pasiuni diverse. O pasiune de sute si sute de ani, care nu a murit nici in prezent, este 
-          colectionarea diverselor obiecte. Inspirati de secolul vitezei si era tehnologiei, dorim sa oferim un suport in gestionarea colectiilor si 
-          sa le oferim un  "share" mult mai usor din cadru online. 
-              COLR reprezinta mediu ideal pentru pasionatii de "a le colectionarii". Aceasta permite unui utilzator sa isi creeze mai multe colectii si sa adauge artefacte in ele. Fiecare dintre acestea(colectia si artefactul) va avea niste caracteristici predefinite, stabilite la adaugare, dar vor avea si cate o descriere. Artefactele vor avea o mica istorie, un pret si alte cateva campuri ce au ca si scop descrierea valorii acestuia. O colectie este in mare parte caracterizata de artefactele ce le contine, in descrierea ei aparand cel mai valoros artefact.
-              Artefactele si colectiile pot fi editate folosind structura de la adaugare, fara a lasa sa fie editate lucrurile foarte importante,acestea pot fi importate sub forma de csv sau pdf.
-              In cadrul aplicatiei, utilizatori vor putea aprecia artefactele ce i-au impresionat, iar pe baza lor se va face un clasament sau vor putea consulta pagina de statistici unde vor vedea cati utilizatori ,colectii sau artefacte sunt.
-        </p>
+    </div>
+    <section id="descriere">
+      <h3>1. Descriere</h3>
+      <p> In ziua de azi, tot mai multi oameni au pasiuni diverse. O pasiune de sute si sute de ani, care nu a murit
+        nici in prezent, este
+        colectionarea diverselor obiecte. Inspirati de secolul vitezei si era tehnologiei, dorim sa oferim un suport in
+        gestionarea colectiilor si
+        sa le oferim un "share" mult mai usor din cadru online.
+        COLR reprezinta mediu ideal pentru pasionatii de "a le colectionarii". Aceasta permite unui utilzator sa isi
+        creeze mai multe colectii si sa adauge artefacte in ele. Fiecare dintre acestea(colectia si artefactul) va avea
+        niste caracteristici predefinite, stabilite la adaugare, dar vor avea si cate o descriere. Artefactele vor avea
+        o mica istorie, un pret si alte cateva campuri ce au ca si scop descrierea valorii acestuia. O colectie este in
+        mare parte caracterizata de artefactele ce le contine, in descrierea ei aparand cel mai valoros artefact.
+        Artefactele si colectiile pot fi editate folosind structura de la adaugare, fara a lasa sa fie editate lucrurile
+        foarte importante,acestea pot fi importate sub forma de csv sau pdf.
+        In cadrul aplicatiei, utilizatori vor putea aprecia artefactele ce i-au impresionat, iar pe baza lor se va face
+        un clasament sau vor putea consulta pagina de statistici unde vor vedea cati utilizatori ,colectii sau artefacte
+        sunt.
+      </p>
     </section>
     <section>
-        <h3>2. Actori</h3>
-        <p><strong>2.1 Utilizator autentificat:</strong> Utilizator al internetului ce este înregistrat în baza noastră de date. </p>
-        <p><strong>2.1.1</strong> Acesta are acces pe toate paginile din interfață</p>
-        <p><strong>2.1.2</strong> Este autorizat să: </p>
-        <ul>
+      <h3>2. Actori</h3>
+      <p><strong>2.1 Utilizator autentificat:</strong> Utilizator al internetului ce este înregistrat în baza noastră de
+        date. </p>
+      <p><strong>2.1.1</strong> Acesta are acces pe toate paginile din interfață</p>
+      <p><strong>2.1.2</strong> Este autorizat să: </p>
+      <ul>
         <li> vizualizeze colecțiile personale</li>
         <li> vizualizeze toate artefactele</li>
         <li> adauge colecții</li>
@@ -39,84 +51,96 @@
         <li> să vizualizeze statisticile</li>
         <li> să vizualizeze clasamentul</li>
         <li> se deconecteze</li>
-        </ul>
-        <p><strong>2.2 Administrator:</strong> Suplimentar, acesta are acces la informațiile tuturor utilizatorilor, poate dezactiva un cont și de
-            asemenea poate șterge orice colecție sau artefact, chiar dacă acestea nu îi aparțin.
-        </p>
-        <p><strong>2.3 Serverul:</strong> Are rolul de a răspunde cât mai repede cerințelor clientului.
-        </p>
+      </ul>
+      <p><strong>2.2 Administrator:</strong> Suplimentar, acesta are acces la informațiile tuturor utilizatorilor, poate
+        dezactiva un cont și de
+        asemenea poate șterge orice colecție sau artefact, chiar dacă acestea nu îi aparțin.
+      </p>
+      <p><strong>2.3 Serverul:</strong> Are rolul de a răspunde cât mai repede cerințelor clientului.
+      </p>
     </section>
 
     <section id="metode">
-        <h3>3. Scenarii de utilizare</h3>
+      <h3>3. Scenarii de utilizare</h3>
 
-        <p><strong>3.1 Actor: Utilizator autentificat</strong></p>
-        <p><strong>Scenariu/Pași:</strong></p>
-        <ol>
-          <li>Se conectează</li>
-          <li>Este direcționat către pagina ce conține colecțiile personale</li>
-          <li>Accesează pagina de artefacte</li>
-          <li>Setează filtrele dorite</li>
-          <li>Accesează un artefact</li>
-          <li>Apreziază artefactul</li>
-          <li>Vizualizează statisticile</li>
-          <li>Creează o colecție nouă</li>
-          <li>Adaugă artefacte în colecție</li>
-          <li>Vizualizează clasamentul</li>
-          <li>Se deconectează</li>
-        </ol>
+      <p><strong>3.1 Actor: Utilizator autentificat</strong></p>
+      <p><strong>Scenariu/Pași:</strong></p>
+      <ol>
+        <li>Se conectează</li>
+        <li>Este direcționat către pagina ce conține colecțiile personale</li>
+        <li>Accesează pagina de artefacte</li>
+        <li>Setează filtrele dorite</li>
+        <li>Accesează un artefact</li>
+        <li>Apreziază artefactul</li>
+        <li>Vizualizează statisticile</li>
+        <li>Creează o colecție nouă</li>
+        <li>Adaugă artefacte în colecție</li>
+        <li>Vizualizează clasamentul</li>
+        <li>Se deconectează</li>
+      </ol>
 
-        <p><strong>3.2 Actor: Administrator</strong></p>
-        <p><strong> Scenariu/Pași:</strong></p>
-        <ol>
-          <li>Se conectează</li>
-          <li>Șterge colecții</li>
-          <li>Șterge artefacte</li>
-          <li>Șterge conturi ale utilizatorilor</li>
-          <li>Se deconectează</li>
-        </ol>
+      <p><strong>3.2 Actor: Administrator</strong></p>
+      <p><strong> Scenariu/Pași:</strong></p>
+      <ol>
+        <li>Se conectează</li>
+        <li>Șterge colecții</li>
+        <li>Șterge artefacte</li>
+        <li>Șterge conturi ale utilizatorilor</li>
+        <li>Se deconectează</li>
+      </ol>
 
-    <p><strong>Basic flow</strong></p>
-    <ol>
-      <li>Utilizatorul va intra pe site si va fi direcționat către pagina de conectare. Acolo poate să se conecteze (dacă are deja un cont valabil) sau poate apăsa butonul de înregistrare care îl trimite pe pagina unde își poate creea un cont nou.</li>
-      <li>După ce se va conecta/înregistra va fi redirecționat pe pagina unde sunt listate toate colecțiile personale și de unde poate naviga prin întreaga aplicație folosind meniul de navigare.</li>
-      <li>Utilizatorul poate adăuga colecții și artefacte noi. De asemenea, pe langa colecțiile personale, orice utilizator poate vizualiza toate artefactele din baza de date.</li>
-      <li>Atât colecțiile cât și artefactele pot fi afișate în baza unor filtre pe care utilizatorul le are la dispoziție. Pe pagina ce conține toate artefactele utilizatorul poate descarca un document fie în format csv, fie în format pdf ce conține toate artefactele pe care le-a adăugat.</li>
-      <li>De asemenea, orice utilizator are posibilitatea de a vizualiza statisticile si clasamentul.</li>
-    </ol>
-    <p><strong>Exception flow</strong></p>
-    <ol>
-      <li>În cazul în care utilizatorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este disponibilă, acesta va primi un mesaj de eroare 404.</li>
-    </ol>
+      <p><strong>Basic flow</strong></p>
+      <ol>
+        <li>Utilizatorul va intra pe site si va fi direcționat către pagina de conectare. Acolo poate să se conecteze
+          (dacă are deja un cont valabil) sau poate apăsa butonul de înregistrare care îl trimite pe pagina unde își
+          poate creea un cont nou.</li>
+        <li>După ce se va conecta/înregistra va fi redirecționat pe pagina unde sunt listate toate colecțiile personale
+          și de unde poate naviga prin întreaga aplicație folosind meniul de navigare.</li>
+        <li>Utilizatorul poate adăuga colecții și artefacte noi. De asemenea, pe langa colecțiile personale, orice
+          utilizator poate vizualiza toate artefactele din baza de date.</li>
+        <li>Atât colecțiile cât și artefactele pot fi afișate în baza unor filtre pe care utilizatorul le are la
+          dispoziție. Pe pagina ce conține toate artefactele utilizatorul poate descarca un document fie în format csv,
+          fie în format pdf ce conține toate artefactele pe care le-a adăugat.</li>
+        <li>De asemenea, orice utilizator are posibilitatea de a vizualiza statisticile si clasamentul.</li>
+      </ol>
+      <p><strong>Exception flow</strong></p>
+      <ol>
+        <li>În cazul în care utilizatorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este
+          disponibilă, acesta va primi un mesaj de eroare 404.</li>
+      </ol>
 
-    <p><strong>Basic flow</strong></p>
-    <ol>
-      <li>În cazul administratorilor, aceștia se conectează și au posibilitatea de a șterge colecții/artefacte si de a șterge conturile utilizatorilor sau de modifica anumite informații.</li>
-    </ol>
-    <p><strong>Exception flow</strong></p>
-    <ol>
-      <li>În cazul în care administratorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este disponibilă, acesta va primi un mesaj de eroare 404.</li>
-    </ol>
-</section>
+      <p><strong>Basic flow</strong></p>
+      <ol>
+        <li>În cazul administratorilor, aceștia se conectează și au posibilitatea de a șterge colecții/artefacte si de a
+          șterge conturile utilizatorilor sau de modifica anumite informații.</li>
+      </ol>
+      <p><strong>Exception flow</strong></p>
+      <ol>
+        <li>În cazul în care administratorul dorește să ajungă direct pe o anumită pagina, dar acea pagină nu este
+          disponibilă, acesta va primi un mesaj de eroare 404.</li>
+      </ol>
+    </section>
 
 
     <section>
-        <h3>4. Tehnologii utilizate</h3>
-        <p>Interfața aplicației a fost scrisă folosind <strong>HTML5</strong> pentru a crea componentele necesare acesteia și
-            <strong>CSS3</strong> pentru a le stiliza.
-        </p>
-        <p>HTML5 este un limbaj pentru structurarea si prezentarea continutului pentru World Wide Web, iar CSS
-            este un limbaj (style language) care defineste "layout-ul" pentru documentele HTML. CSS acopera culori,
-            font-uri, margini, linii,
-            imagini de fundal, pozitii avansate si multe alte optiuni utile in design.</p>
-        <p>Partea de backend a aplicației web s-a realizat utilizând <strong>Node.js</strong> datorită vitezei pentru că folosește JavaScript. Fiind o tehnologie open-source,
-           Node.js are un depozit comun de instrumente și module foarte mare.</p>
-          <p>PDFKit este o librărie pentru Node.js care ajută la crearea documentelor de tip pdf.</p>
-          <p>json2csv este o librărie care convertește un fișier de tip json în csv.</p>
-          <p>Mongoose oferă o soluție simplă pentru a modela datele aplicației.</p>
-          <p>Toate aceste librării menționate anterior sunt librării open-source.</p>
-        <p>Pentru baza de date s-a folosit <strong>MongoDB</strong>.
-        </p>
+      <h3>4. Tehnologii utilizate</h3>
+      <p>Interfața aplicației a fost scrisă folosind <strong>HTML5</strong> pentru a crea componentele necesare acesteia
+        și
+        <strong>CSS3</strong> pentru a le stiliza.
+      </p>
+      <p>HTML5 este un limbaj pentru structurarea si prezentarea continutului pentru World Wide Web, iar CSS
+        este un limbaj (style language) care defineste "layout-ul" pentru documentele HTML. CSS acopera culori,
+        font-uri, margini, linii,
+        imagini de fundal, pozitii avansate si multe alte optiuni utile in design.</p>
+      <p>Partea de backend a aplicației web s-a realizat utilizând <strong>Node.js</strong> datorită vitezei pentru că
+        folosește JavaScript. Fiind o tehnologie open-source,
+        Node.js are un depozit comun de instrumente și module foarte mare.</p>
+      <p>PDFKit este o librărie pentru Node.js care ajută la crearea documentelor de tip pdf.</p>
+      <p>json2csv este o librărie care convertește un fișier de tip json în csv.</p>
+      <p>Mongoose oferă o soluție simplă pentru a modela datele aplicației.</p>
+      <p>Toate aceste librării menționate anterior sunt librării open-source.</p>
+      <p>Pentru baza de date s-a folosit <strong>MongoDB</strong>.
+      </p>
     </section>
 
     <section>
@@ -129,21 +153,57 @@
       <img src="./images/arhitectura.png" height="35%" width="70%">
       <p>Diagrama bazei de date:</p>
       <img src="./images/bd.png" height="35%" width="70%">
-  </section>
+    </section>
 
-  <section>
-    <h3>6. Link-uri utile</h3>
-    
-</section>
-
-</article>
-<footer>
+    <section>
+      <h3>6. Link-uri utile</h3>
+      <ul>
+        <li>
+          <a
+            href="https://grokonez.com/node-js/nodejs-use-mongoose-to-save-files-images-to-mongodb">https://grokonez.com/node-js/nodejs-use-mongoose-to-save-files-images-to-mongodb</a>
+        </li>
+        <li>
+          <a href="https://www.npmjs.com/package/mongoose">https://www.npmjs.com/package/mongoose</a>
+        </li>
+        <li>
+          <a href="https://www.npmjs.com/package/formidable">https://www.npmjs.com/package/formidable</a>
+        </li>
+        <li>
+          <a href="https://freefrontend.com/">https://freefrontend.com/</a>
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener</a>
+        </li>
+        <li>
+          <a href="https://youtu.be/2jqok-WgelI">https://youtu.be/2jqok-WgelI</a>
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">https://developer.mozilla.org/en-US/docs/Web/API/FormData</a>
+        </li>
+        <li>
+          <a
+            href="https://guides.emberjs.com/release/routing/query-params/">https://guides.emberjs.com/release/routing/query-params/</a>
+        </li>
+        <li>
+          <a
+            href="https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/">https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/</a>
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/xml/xml_rss.asp">https://www.w3schools.com/xml/xml_rss.asp</a>
+        </li>
+      </ul>
+    </section>
+  </article>
+  <footer>
     <p>
-        TW 2020 -
-        <a href="https://github.com/robertzanceanu/Colr">Github Repository</a>
+      TW 2020 -
+      <a href="https://github.com/robertzanceanu/Colr">Github Repository</a>
 
-        - UAIC - Facultatea de Informatica Iasi
+      - UAIC - Facultatea de Informatica Iasi
     </p>
-</footer>
+  </footer>
 </body>
+
 </html>
