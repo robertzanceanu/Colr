@@ -1,5 +1,4 @@
 let fs = require('fs')
-
 let mimeTypes = {
     '.html': 'text/html',
     '.js': 'text/javascript',
@@ -19,13 +18,15 @@ let mimeTypes = {
 }
 module.exports = (route, mimeType, response) => {
     let contentType = mimeTypes[`.${mimeType}`] || 'application/octet-stream'
+
     fs.readFile(route, function (error, content) {
         if (error) {
             if (error.code == 'ENOENT') {
-                fs.readFile('./404.html', function (error, content) {
+                fs.readFile('../frontend/404/404.html', function (error, content) {
                     response.writeHead(404, { 'Content-Type': 'text/html' })
                     response.end(content, 'utf-8');
                 })
+
             }
             else {
                 response.writeHead(500);

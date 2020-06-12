@@ -60,7 +60,6 @@ http.createServer(function (request, response) {
 
         if (routes.indexOf(mainPage) > -1) {
             filePath = `${filePath}/${mainPage}/${mainPage}`
-
             if (!requestMime) {
                 filePath = `${filePath}.html`
                 renderContent(filePath, 'html', response)
@@ -69,9 +68,14 @@ http.createServer(function (request, response) {
                 renderContent(filePath, requestMime, response)
             }
         } else {
-            const reqMt = request.url.split('.')
-            filePath = `${filePath}${request.url}`
-            renderContent(filePath, reqMt[1], response)
+            if(request.url === '/404.css') {
+                renderContent(`../frontend/404/404.css`, 'css', response)
+            } else {
+                const reqMt = request.url.split('.')
+                filePath = `${filePath}${request.url}`
+                renderContent(filePath, reqMt[1], response)
+            }
+            
         }
     }
 }).listen(PORT)

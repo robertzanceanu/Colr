@@ -13,7 +13,6 @@ module.exports = async (request, response, urlArray, userId) => {
         }
         else if(urlArray[2] === 'user-details-clasament')
             {
-                console.log('oaie grasa')
                 clsamentContoller(request, response, userId)
             }
         else if (urlArray[2] === 'all-users') {
