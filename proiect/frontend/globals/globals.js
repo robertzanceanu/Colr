@@ -48,6 +48,9 @@ const adminRoutes = [
     'admin-artefacts'
 ]
 window.addEventListener('DOMContentLoaded', async (event) => {
+    if(!localStorage.getItem('auth-token')) {
+        window.location.href = '/login'
+    }
     const userInfos = await getUserDetails()
     const currentPage = location.pathname.split('/')[1]
     const inAdminRoutes = adminRoutes.find(route => route === currentPage)
